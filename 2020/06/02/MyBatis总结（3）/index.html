@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Lemon的博客</title>
+  <title>MyBatis总结（3） | Lemon的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="南京邮电大学 2021届 通信与信息工程学院 电子与通信工程专业">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lemon的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="@TOC 一、 ResultMap：自定义结果映射规则在xml映射文件中，除了可以使用resultType定义返回值类型外，还可以使用resultMap自定义结果集映射规则 EmployeeMapper接口 1public Employee getEmpById(Integer id); xml映射文件 123&lt;select id&#x3D;&quot;getEmpById&quot; resultMap&#x3D;&quot;MyE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis总结（3）">
+<meta property="og:url" content="http://yoursite.com/2020/06/02/MyBatis%E6%80%BB%E7%BB%93%EF%BC%883%EF%BC%89/index.html">
 <meta property="og:site_name" content="Lemon的博客">
-<meta property="og:description" content="南京邮电大学 2021届 通信与信息工程学院 电子与通信工程专业">
+<meta property="og:description" content="@TOC 一、 ResultMap：自定义结果映射规则在xml映射文件中，除了可以使用resultType定义返回值类型外，还可以使用resultMap自定义结果集映射规则 EmployeeMapper接口 1public Employee getEmpById(Integer id); xml映射文件 123&lt;select id&#x3D;&quot;getEmpById&quot; resultMap&#x3D;&quot;MyE">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-02T13:22:21.000Z">
+<meta property="article:modified_time" content="2020-06-12T10:05:00.398Z">
 <meta property="article:author" content="Lemon">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content=" Python">
+<meta property="article:tag" content="mybatis">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Lemon的博客" type="application/atom+xml">
@@ -150,471 +151,274 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MyBatis总结（3）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MyBatis总结（3）
+    </h1>
+  
+
+        
+        <a href="/2020/06/02/MyBatis%E6%80%BB%E7%BB%93%EF%BC%883%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-06-02T13:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+
+<p>@<a href="MyBatis（3）">TOC</a></p>
+<h2 id="一、-ResultMap：自定义结果映射规则"><a href="#一、-ResultMap：自定义结果映射规则" class="headerlink" title="一、 ResultMap：自定义结果映射规则"></a>一、 ResultMap：自定义结果映射规则</h2><p>在xml映射文件中，除了可以使用<code>resultType</code>定义返回值类型外，还可以使用<code>resultMap</code>自定义结果集映射规则</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpById</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpById"</span> resultMap=<span class="string">"MyEmp"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee where id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>resultMap定义</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=<span class="string">"MyEmp"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"email"</span> property=<span class="string">"email"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<p>（1）<code>id</code>：主键的封装规则<br>（2）<code>result</code>：普通列的封装规则<br>（3）<code>column</code>：指定是表中的哪一列<br>（4）<code>property</code>：指定该列所对应的javaBean对象的哪一个属性<br>（5）注意到这里定义了映射规则，所以就算不开启<code>mapUnderscoreToCamelCase</code>驼峰命名规则，也可以识别到对应的属性<br>（6）映射规则：==数据表中列名column &lt;=&gt; java对象的属性名property==</p>
+<h2 id="二、association的关联查询"><a href="#二、association的关联查询" class="headerlink" title="二、association的关联查询"></a>二、association的关联查询</h2><p><strong>要求查询Employee的同时查询员工所在的部门</strong><br>Employee.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> String lastName;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">private</span> String gender;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> Department dept;</span><br></pre></td></tr></table></figure>
+<p>Department.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> String departmentName;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> List&lt;Employee&gt; emps;</span><br></pre></td></tr></table></figure>
+
+<p>查询结果：id  last_name  gender    d_id     did  dept_name</p>
+<h4 id="法一：级联属性"><a href="#法一：级联属性" class="headerlink" title="法一：级联属性"></a><strong>法一：级联属性</strong></h4><p>由于在Emp中定义了Departrment属性，因此可以使用<code>dept.id</code>和<code>dept.departmentName</code>查询员工所在的部门<br>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpAndDept</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpAndDept"</span> resultMap=<span class="string">"MyDifEmp"</span>&gt;</span><br><span class="line">       SELECT e.id id, e.last_name last_name, e.gender gender, e.d_id d_id,</span><br><span class="line">              d.id did, d.dept_name dept_name</span><br><span class="line">       FROM mybatis.tbl_employee e, mybatis.tbl_dept d</span><br><span class="line">       WHERE e.d_id=d.id AND e.id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>resultMap定义</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=<span class="string">"MyDifEmp"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">       &lt;!-- TODO 法一：级联属性 --&gt;</span><br><span class="line">       &lt;result column=<span class="string">"did"</span> property=<span class="string">"dept.id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"dept_name"</span> property=<span class="string">"dept.departmentName"</span>/&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="法二：association标签"><a href="#法二：association标签" class="headerlink" title="法二：association标签"></a><strong>法二：association标签</strong></h4><p><code>association</code>标签：用于在<code>ResultMap</code>中嵌套定义单个对象的封装规则<br><code>property</code>属性：指定外层对象的哪个属性是要关联（嵌套）的对象<br><code>javaType</code>属性：指定该关联对象的类型（全类名） ==不能省略==<br>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpAndDept"</span> resultMap=<span class="string">"MyDifEmp2"</span>&gt;</span><br><span class="line">       SELECT e.id id, e.last_name last_name, e.gender gender, e.d_id d_id,</span><br><span class="line">              d.id did, d.dept_name dept_name</span><br><span class="line">       FROM mybatis.tbl_employee e, mybatis.tbl_dept d</span><br><span class="line">       WHERE e.d_id=d.id AND e.id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>resultMap定义</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=<span class="string">"MyDifEmp2"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">      </span><br><span class="line">       &lt;association property=<span class="string">"dept"</span> javaType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Department"</span>&gt;</span><br><span class="line">           &lt;id column=<span class="string">"did"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">           &lt;result column=<span class="string">"dept_name"</span> property=<span class="string">"departmentName"</span>/&gt;</span><br><span class="line">       &lt;/association&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Employee empAndDept = mapper.getEmpAndDept(<span class="number">1</span>);</span><br><span class="line">System.out.println(empAndDept);</span><br><span class="line">System.out.println(empAndDept.getDept());</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、association的分步查询"><a href="#三、association的分步查询" class="headerlink" title="三、association的分步查询"></a>三、association的分步查询</h2><p>关联查询可以改成分步查询：<br>由于Emp和Dept是通过id进行关联的，所以可以根据Emp的id查询到Dept的信息</p>
+<pre><code>1. 按照员工id查询员工信息：id  last_name  gender  email  d_id
+2. 根据查询到的员工信息中的d_id值，到部门表中查出部门信息：id  dept_name
+3. 将部门信息设置到查询到的员工中</code></pre><p>sql语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tbl_employee WHERE id =<span class="number">1</span>;</span><br><span class="line">SELECT * FROM tbl_dept WHERE id=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>association</code>标签：用于在<code>ResultMap</code>中嵌套定义单个对象的封装规则<br><code>property</code>属性：指定外层对象的哪个属性是要关联（嵌套）的对象<br><code>select</code>属性：表明当前属性<code>property</code>是调用<code>select</code>指定的方法进行查询  ==NameSpace.id的形式==<br><code>column</code>属性：指定将哪一列的值传给这个方法（使得两表关联的列）</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByIdStep</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdStep"</span> resultMap=<span class="string">"MyEmpByStep"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee where id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br><span class="line">   </span><br><span class="line">&lt;resultMap id=<span class="string">"MyEmpByStep"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"email"</span> property=<span class="string">"email"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">       </span><br><span class="line">       &lt;association property=<span class="string">"dept"</span></span><br><span class="line">                    select=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.dao.DepartmentMapper.getDeptById"</span></span><br><span class="line">                    column=<span class="string">"d_id"</span>/&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<p>DepartmentMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Department <span class="title">getDeptById</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>DepartmentMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapper namespace=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.dao.DepartmentMapper"</span>&gt;</span><br><span class="line">	&lt;select id=<span class="string">"getDeptById"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Department"</span>&gt;</span><br><span class="line">        select id, dept_name departmentName</span><br><span class="line">        from mybatis.tbl_dept</span><br><span class="line">        where id = #&#123;id&#125;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Employee employee = mapper.getEmpByIdStep(<span class="number">1</span>);</span><br><span class="line">System.out.println(employee);</span><br><span class="line">System.out.println(employee.getDept());</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、分步查询进阶：延迟加载"><a href="#四、分步查询进阶：延迟加载" class="headerlink" title="四、分步查询进阶：延迟加载"></a>四、分步查询进阶：延迟加载</h2><p>使用延迟加载可以在用到Dept查询时，才发送查询Dept的sql语句</p>
+<p>全局配置文件mybatis-config.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"lazyLoadingEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"aggressiveLazyLoading"</span> value=<span class="string">"false"</span>/&gt;</span><br><span class="line">   &lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="五、collection的关联查询"><a href="#五、collection的关联查询" class="headerlink" title="五、collection的关联查询"></a>五、collection的关联查询</h2><p><strong>查询部门的时候，将部门对应的所有员工信息也查询出来</strong><br>这里由于一个部门可以对应多个员工，所以结果的返回值类型是List</p>
+<p>Department.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> List&lt;Employee&gt; emps;</span><br></pre></td></tr></table></figure>
+<p>Department接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Department <span class="title">getDeptByIdPlus</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Department.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getDeptByIdPlus"</span> resultMap=<span class="string">"MyDept"</span>&gt;</span><br><span class="line">       SELECT d.id        did,</span><br><span class="line">              d.dept_name dept_name,</span><br><span class="line">              e.id        eid,</span><br><span class="line">              e.last_name last_name,</span><br><span class="line">              e.email     email,</span><br><span class="line">              e.gender    gender</span><br><span class="line">       FROM mybatis.tbl_dept d</span><br><span class="line">                LEFT JOIN mybatis.tbl_employee e</span><br><span class="line">                          ON d.id = e.d_id</span><br><span class="line">       WHERE d.id = <span class="number">1</span></span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p><code>collection</code>标签：定义List集合类型的属性的封装规则<br><code>property</code>属性：集合属性的名称（Department对象中定义的List类型的Emps）<br><code>ofType</code>属性：集合中元素的类型Employee</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMap id=<span class="string">"MyDept"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Department"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"did"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"dept_name"</span> property=<span class="string">"departmentName"</span>/&gt;</span><br><span class="line"></span><br><span class="line">       &lt;collection property=<span class="string">"emps"</span> ofType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       	&lt;!-- 定义这个集合中元素的封装规则 --&gt;</span><br><span class="line">           &lt;id column=<span class="string">"eid"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">           &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">           &lt;result column=<span class="string">"email"</span> property=<span class="string">"email"</span>/&gt;</span><br><span class="line">           &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">       &lt;/collection&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Department department = mapper.getDeptByIdPlus(<span class="number">1</span>);</span><br><span class="line">System.out.println(department);</span><br><span class="line">System.out.println(department.getEmps());</span><br></pre></td></tr></table></figure>
+<h2 id="六、collection的分步查询和延迟加载"><a href="#六、collection的分步查询和延迟加载" class="headerlink" title="六、collection的分步查询和延迟加载"></a>六、collection的分步查询和延迟加载</h2><p>根据Dept的id查询指定部门id的员工信息</p>
+<p>sql语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tbl_dept WHERE id=<span class="number">1</span></span><br><span class="line">   SELECT * FROM tbl_employee WHERE d_id=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>collection</code>标签：用于在<code>ResultMap</code>中嵌套定义List类型对象的封装规则<br><code>fetchType</code>属性：设置为lazy表示使用延迟加载（默认）</p>
+<p>DepartmentMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Department <span class="title">getDeptByIdStep</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>DepartmentMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getDeptByIdStep"</span> resultMap=<span class="string">"MyDeptStep"</span>&gt;</span><br><span class="line">       select id, dept_name departmentName</span><br><span class="line">       from mybatis.tbl_dept</span><br><span class="line">       where id = #&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br><span class="line">   </span><br><span class="line">&lt;resultMap id=<span class="string">"MyDeptStep"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Department"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"dept_name"</span> property=<span class="string">"departmentName"</span>/&gt;</span><br><span class="line">       &lt;collection property=<span class="string">"emps"</span></span><br><span class="line">                   select=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.dao.EmployeeMapperPlus.getEmpsByDeptId"</span></span><br><span class="line">                   column=<span class="string">"&#123;deptId=id&#125;"</span></span><br><span class="line">                   fetchType=<span class="string">"lazy"</span>/&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByDeptId</span><span class="params">(Integer deptId)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByDeptId"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee where d_id=#&#123;deptId&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Department deptByIdStep = mapper.getDeptByIdStep(<span class="number">1</span>);</span><br><span class="line">System.out.println(deptByIdStep.getDepartmentName());</span><br><span class="line">System.out.println(deptByIdStep.getEmps());</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、discriminator鉴别器"><a href="#七、discriminator鉴别器" class="headerlink" title="七、discriminator鉴别器"></a>七、discriminator鉴别器</h2><p><code>discriminator</code>标签：判断某列的值，根据值进行不同的封装规则（类似于switch-case）<br><code>javaType</code>属性：需要判断的列的值对应的类型<br><code>column</code>属性：需要判断的列名<br>其中<code>case</code>标签表示一个case，<code>value</code>属性表示可能的值，<code>resultType</code>属性表示要封装的结果的类型（==不能省略==）</p>
+<p>假设封装规则如下：</p>
+<pre><code>1. 如果查出的是女生，就把部门信息查询出来，否则不查询
+2. 如果查出的是男生，就把last_name这一列的值赋值给email</code></pre><p>依然使用分步查询的方法<br>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByIdStep</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdStep"</span> resultMap=<span class="string">"MyEmpDis"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee where id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;resultMap id=<span class="string">"MyEmpDis"</span> type=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"email"</span> property=<span class="string">"email"</span>/&gt;</span><br><span class="line">       &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line"></span><br><span class="line">       &lt;discriminator javaType=<span class="string">"string"</span> column=<span class="string">"gender"</span>&gt;</span><br><span class="line">           &lt;!-- 女生 --&gt;</span><br><span class="line">           &lt;<span class="keyword">case</span> value=<span class="string">"0"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">               &lt;!-- 定义规则：如果查出的是女生，就把部门信息查询出来，否则不查询 --&gt;</span><br><span class="line">               &lt;association property=<span class="string">"dept"</span></span><br><span class="line">                            select=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.dao.DepartmentMapper.getDeptById"</span></span><br><span class="line">                            column=<span class="string">"d_id"</span>/&gt;</span><br><span class="line">           &lt;/case&gt;</span><br><span class="line">           &lt;!-- 男生 --&gt;</span><br><span class="line">           &lt;<span class="keyword">case</span> value=<span class="string">"1"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">               &lt;!-- 定义规则：如果查出的是男生，就把last_name这一列的值赋值给email --&gt;</span><br><span class="line">               &lt;id column=<span class="string">"id"</span> property=<span class="string">"id"</span>/&gt;</span><br><span class="line">               &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"lastName"</span>/&gt;</span><br><span class="line">               &lt;result column=<span class="string">"last_name"</span> property=<span class="string">"email"</span>/&gt;</span><br><span class="line">               &lt;result column=<span class="string">"gender"</span> property=<span class="string">"gender"</span>/&gt;</span><br><span class="line">           &lt;/case&gt;</span><br><span class="line">       &lt;/discriminator&gt;</span><br><span class="line">   &lt;/resultMap&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Employee employee = mapper.getEmpByIdStep(<span class="number">3</span>);</span><br><span class="line">System.out.println(employee);</span><br><span class="line">System.out.println(employee.getDept());</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-12T08:00:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/12/hello-world/" class="archive-article-date">
-  	<time datetime="2020-06-12T07:51:56.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%887%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T14:08:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%887%EF%BC%89/">SpringMVC（7）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
+        			<a href="/categories/MyBatis//" class="article-tag-list-link color3">MyBatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/02/MyBatis%E6%80%BB%E7%BB%93%EF%BC%883%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%886%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/02/MyBatis%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MyBatis参数处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/01/MyBatis%E6%80%BB%E7%BB%93%EF%BC%882%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MyBatis总结（2）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%886%EF%BC%89/">SpringMVC（6）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%885%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:18:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%885%EF%BC%89/">SpringMVC（5）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%884%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%884%EF%BC%89/">SpringMVC（4）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%883%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T08:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%883%EF%BC%89/">SpringMVC（3）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%882%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T07:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%882%EF%BC%89/">SpringMVC（2）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/10/SpringMVC%EF%BC%881%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-10T13:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/10/SpringMVC%EF%BC%881%EF%BC%89/">SpringMVC（1）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/LeetCode%E7%83%AD%E9%A2%98Hot%EF%BC%883%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-07T10:15:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/LeetCode%E7%83%AD%E9%A2%98Hot%EF%BC%883%EF%BC%89/">LeetCode热题Hot（3）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/LeetCode热题Hot100//" class="article-tag-list-link color2">LeetCode热题Hot100</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -638,8 +442,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

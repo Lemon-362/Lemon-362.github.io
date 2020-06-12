@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Lemon的博客</title>
+  <title>MyBatis参数处理 | Lemon的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="南京邮电大学 2021届 通信与信息工程学院 电子与通信工程专业">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lemon的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称    #{参数名}：取出参数 二、多个参数：mybatis会做特殊处理     当我们设置成：    （1）方法：public Employee getEmpByIdAndLastName(Integer id, String lastName);    （2）sql语句：where id&#x3D;#{id} and last_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis参数处理">
+<meta property="og:url" content="http://yoursite.com/2020/06/02/MyBatis%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Lemon的博客">
-<meta property="og:description" content="南京邮电大学 2021届 通信与信息工程学院 电子与通信工程专业">
+<meta property="og:description" content="一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称    #{参数名}：取出参数 二、多个参数：mybatis会做特殊处理     当我们设置成：    （1）方法：public Employee getEmpByIdAndLastName(Integer id, String lastName);    （2）sql语句：where id&#x3D;#{id} and last_">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-02T13:42:30.000Z">
+<meta property="article:modified_time" content="2020-06-12T10:05:00.296Z">
 <meta property="article:author" content="Lemon">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content=" Python">
+<meta property="article:tag" content="mybatis">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Lemon的博客" type="application/atom+xml">
@@ -150,471 +151,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MyBatis参数处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MyBatis参数处理
+    </h1>
+  
+
+        
+        <a href="/2020/06/02/MyBatis%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-06-02T13:42:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<p>一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称<br>    #{参数名}：取出参数</p>
+<p>二、多个参数：mybatis会做特殊处理<br>     当我们设置成：<br>    （1）方法：<code>public Employee getEmpByIdAndLastName(Integer id, String lastName);</code><br>    （2）sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    会报错异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Parameter <span class="string">'id'</span> not found.</span><br><span class="line">Available parameters are [<span class="number">0</span>, <span class="number">1</span>, param1, param2]</span><br></pre></td></tr></table></figure>
+
+<p>==解决办法一：==<br>        多个参数会被封装成一个map：<br>        （1）key：param1,…,paramN，或者参数的索引（从0开始）<br>        （2）value：传入的参数值<br>        #{param1}就是从mao中获取指定key的值<br>    sql语句：where id=#{param1} and last_name=#{param2}</p>
+<p>==解决办法二：推荐！！！==<br><strong>命名参数</strong>：明确指定封装参数时map的key名称 —— <code>@Param(&quot;id&quot;)</code><br>    方法：<code>getEmpByIdAndLastName(@Param(&quot;id&quot;) Integer id, @Param(&quot;lastName&quot;) String lastName);</code><br>    sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    多个参数会被封装成一个map：<br>            （1）key：使用@Param注解指定的值<br>            （2）value：传入的参数值<br>        #{指定的key}就是从mao中获取指定key的值</p>
+<p>POJO：<br>三、如果多个参数正好是业务逻辑的数据模型，我们就可以直接传入pojo<br>    <code>#{属性名}</code>：取出传入的pojo的属性值</p>
+<p>Map：<br>四、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==不经常使用时，我们可以一传入map==<br>    <code>#{key}</code>：取出map中对应的值</p>
+<p>TO：<br>五、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==经常要使用，推荐编写一个TO(Transfer Object）数据传输对象==</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Page&#123;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>六、<code>#{ }</code>和<code>${ }</code>：都可以获取map中的值或者pojo对象属性的值</p>
+<p>1.区别：<br>（1）<code>#{ }</code>：以预编译的形式，将参数设置到sql语句中 PreparedStatement ==&gt; 可以防止sql注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tbl_employee where id=#&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=? and last_name=?</span><br></pre></td></tr></table></figure>
+
+<p>（2）<code>${ }</code>：取出的值直接拼接在sql语句中 ⇒ 有sql注入安全问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from tbl_employee where id=$&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=<span class="number">2</span> and last_name=?</span><br></pre></td></tr></table></figure>
+
+<p>==大多是情况下，取参数的值都使用 <code>#{ }</code>==</p>
+<pre><code>原生JDBC不支持占位符的地方我们就可以使用 ${} 进行取值
+例如：
+（1）表名不支持占位符，而现在可以使用 ${} 进行拼接
+分表（按照年份分表拆分）：select * from ${year}_salary where ...; =&gt; 2017_salary, 2016_salary...
+（2）order by后面的表达式不支持占位符，而现在可以使用 ${} 进行拼接
+排序：select * from tnl_employee order by ${f_name} ${order}; ==&gt; 表达式 + desc/aesc</code></pre><p>2.<code>#{ }</code>更丰富的用法 —— 规定参数的一些规则<br>    javaType、 jdbcType、 mode（存储过程）、 numericScale、<br>    resultMap、 typeHandler、 jdbcTypeName、 expression（未来准备支持的功能）；</p>
+<p>jdbcType通常需要在某种特定的条件下被设置：<br>    在数据为null时，有些数据库不能识别mybatis对null的默认处理（Oracle），此时会报错</p>
+<pre><code>JdbcType OTHER：无效的类型；因为mybatis对所有的null都映射的是原生Jdbc的OTHER类型，oracle不能正确处理;
+由于全局配置中：jdbcTypeForNull=OTHER；oracle不支持；两种办法
+    1、#{email,jdbcType=OTHER};
+    2、jdbcTypeForNull=NULL
+        &lt;setting name=&quot;jdbcTypeForNull&quot; value=&quot;NULL&quot;/&gt;</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-06-12T08:00:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/12/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/12/hello-world/" class="archive-article-date">
-  	<time datetime="2020-06-12T07:51:56.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%887%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T14:08:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%887%EF%BC%89/">SpringMVC（7）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
+        			<a href="/categories/MyBatis//" class="article-tag-list-link color3">MyBatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/02/MyBatis%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%886%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/02/MyBatis%EF%BC%885%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MyBatis（5）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/02/MyBatis%E6%80%BB%E7%BB%93%EF%BC%883%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MyBatis总结（3）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%886%EF%BC%89/">SpringMVC（6）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%885%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:18:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%885%EF%BC%89/">SpringMVC（5）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%884%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T12:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%884%EF%BC%89/">SpringMVC（4）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%883%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T08:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%883%EF%BC%89/">SpringMVC（3）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SpringMVC%EF%BC%882%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-11T07:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SpringMVC%EF%BC%882%EF%BC%89/">SpringMVC（2）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/10/SpringMVC%EF%BC%881%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-10T13:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/10/SpringMVC%EF%BC%881%EF%BC%89/">SpringMVC（1）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SpringMVC//" class="article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/LeetCode%E7%83%AD%E9%A2%98Hot%EF%BC%883%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-06-07T10:15:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/LeetCode%E7%83%AD%E9%A2%98Hot%EF%BC%883%EF%BC%89/">LeetCode热题Hot（3）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/LeetCode热题Hot100//" class="article-tag-list-link color2">LeetCode热题Hot100</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -638,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
