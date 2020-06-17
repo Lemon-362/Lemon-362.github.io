@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>LeetCode热题Hot（1）</title>
-    <url>/2020/ckbj44yv20000k4vf5aademgf/</url>
+    <url>/2020/ckbjbf7930001mwvfazcici6m/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h2 id="LeetCode热题Hot-（1）"><a href="#LeetCode热题Hot-（1）" class="headerlink" title="LeetCode热题Hot （1）"></a>LeetCode热题Hot （1）</h2><h4 id="两数之和："><a href="#两数之和：" class="headerlink" title="两数之和："></a>两数之和：</h4><ul>
@@ -32,8 +32,34 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode热题Hot（3）</title>
+    <url>/2020/ckbjbf7970003mwvfh0ye8pfv/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="LeetCode热题Hot-（3）"><a href="#LeetCode热题Hot-（3）" class="headerlink" title="LeetCode热题Hot （3）"></a>LeetCode热题Hot （3）</h2><h4 id="无重复字符的最长子串："><a href="#无重复字符的最长子串：" class="headerlink" title="无重复字符的最长子串："></a>无重复字符的最长子串：</h4><ul>
+<li>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度</li>
+</ul>
+<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><ul>
+<li>找以每个字符开头的最长无重复子串，那么答案一定在其中</li>
+</ul>
+<ol>
+<li>用start遍历每一个字符，找以start位置开头的最长无重复子串</li>
+<li>在每次遍历中，用end往后遍历，直到set中出现了重复字符时停止<br>  此时，start - end（不包括end） 就是以start位置开头的最长无重复子串</li>
+<li>可以保证start+1 - end 是一定不会重复的，所以可以继续从end往后找<br>  将start位置从set中移除，start到下一个位置<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestSubString</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">       HashSet&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">       <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> (start &lt; s.length())&#123;</span><br><span class="line">           <span class="keyword">while</span> (end &lt; s.length() &amp;&amp; !set.contains(s.charAt(end)))&#123;</span><br><span class="line">               set.add(s.charAt(end));</span><br><span class="line">               end++;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           len = Math.max(len, end - start);</span><br><span class="line"></span><br><span class="line">           set.remove(s.charAt(start));</span><br><span class="line">           start++;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> len;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>LeetCode热题Hot100</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode热题Hot（2）</title>
-    <url>/2020/ckbj44yva0002k4vfcc9bb0qt/</url>
+    <url>/2020/ckbjbf79b0006mwvf7tym3v77/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h2 id="LeetCode热题Hot-（2）"><a href="#LeetCode热题Hot-（2）" class="headerlink" title="LeetCode热题Hot （2）"></a>LeetCode热题Hot （2）</h2><h4 id="两数以链表的形式相加："><a href="#两数以链表的形式相加：" class="headerlink" title="两数以链表的形式相加："></a>两数以链表的形式相加：</h4><ul>
@@ -72,7 +98,7 @@
   </entry>
   <entry>
     <title>MyBatis参数处理</title>
-    <url>/2020/ckbj44yvf0006k4vf5bpmdvyv/</url>
+    <url>/2020/ckbjbf79c0007mwvfb7bie05x/</url>
     <content><![CDATA[<a id="more"></a>
 
 <p>一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称<br>    #{参数名}：取出参数</p>
@@ -114,34 +140,8 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode热题Hot（3）</title>
-    <url>/2020/ckbj44yvg0007k4vfhgkc5vo4/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="LeetCode热题Hot-（3）"><a href="#LeetCode热题Hot-（3）" class="headerlink" title="LeetCode热题Hot （3）"></a>LeetCode热题Hot （3）</h2><h4 id="无重复字符的最长子串："><a href="#无重复字符的最长子串：" class="headerlink" title="无重复字符的最长子串："></a>无重复字符的最长子串：</h4><ul>
-<li>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度</li>
-</ul>
-<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><ul>
-<li>找以每个字符开头的最长无重复子串，那么答案一定在其中</li>
-</ul>
-<ol>
-<li>用start遍历每一个字符，找以start位置开头的最长无重复子串</li>
-<li>在每次遍历中，用end往后遍历，直到set中出现了重复字符时停止<br>  此时，start - end（不包括end） 就是以start位置开头的最长无重复子串</li>
-<li>可以保证start+1 - end 是一定不会重复的，所以可以继续从end往后找<br>  将start位置从set中移除，start到下一个位置<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">longestSubString</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">       HashSet&lt;Character&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">       <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> (start &lt; s.length())&#123;</span><br><span class="line">           <span class="keyword">while</span> (end &lt; s.length() &amp;&amp; !set.contains(s.charAt(end)))&#123;</span><br><span class="line">               set.add(s.charAt(end));</span><br><span class="line">               end++;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           len = Math.max(len, end - start);</span><br><span class="line"></span><br><span class="line">           set.remove(s.charAt(start));</span><br><span class="line">           start++;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> len;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>LeetCode热题Hot100</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MyBatis总结（1）</title>
-    <url>/2020/ckbj44yvi0008k4vfdlb96uxj/</url>
+    <url>/2020/ckbjbf79e0008mwvfcawy8x5t/</url>
     <content><![CDATA[<a id="more"></a>
 
 
@@ -196,69 +196,50 @@
       </tags>
   </entry>
   <entry>
-    <title>MyBatis总结（2）</title>
-    <url>/2020/ckbj44yvl000ck4vfbu64gjb0/</url>
+    <title>MyBatis（5）</title>
+    <url>/2020/ckbjbf79h000cmwvfh3n22hfs/</url>
     <content><![CDATA[<a id="more"></a>
 
-<p>@<a href="MyBatis（2）">TOC</a> </p>
-<h2 id="一、增删改查CRUD的映射文件配置"><a href="#一、增删改查CRUD的映射文件配置" class="headerlink" title="一、增删改查CRUD的映射文件配置"></a>一、增删改查CRUD的映射文件配置</h2><h3 id="1-增加Employee"><a href="#1-增加Employee" class="headerlink" title="1. 增加Employee"></a>1. 增加Employee</h3><p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">addEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"addEmp"</span> parameterType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span></span><br><span class="line">useGeneratedKeys=<span class="string">"true"</span> keyProperty=<span class="string">"id"</span>&gt;</span><br><span class="line">    <span class="function">insert into <span class="title">tbl_employee</span><span class="params">(last_name,email,gender)</span></span></span><br><span class="line"><span class="function">    <span class="title">values</span><span class="params">(#&#123;lastName&#125;,#&#123;email&#125;,#&#123;gender&#125;)</span></span></span><br><span class="line"><span class="function">&lt;/insert&gt;</span></span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"jerry"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="string">"1"</span>);</span><br><span class="line">Long addEmp = mapper.addEmp(employee);</span><br><span class="line">System.out.println(addEmp);</span><br><span class="line"><span class="comment">// 获取自增主键的值</span></span><br><span class="line">System.out.println(employee.getId());</span><br></pre></td></tr></table></figure>
-<p>（1）由于是增加操作，所以返回值可以是update的条目数，而输入的参数是Employee对象，所以在xml配置文件中使用<code>parameterType</code>表示参数类型<br>（2）对于自增主键id，<code>useGeneratedKeys=&quot;true&quot;</code>表示使用自增主键获取主键值策略；<code>keyProperty=&quot;id&quot;</code>指定对应的主键属性，使得MyBatis获取到主键后，将这个值封装给对象的哪个属性</p>
-<h3 id="2-更新Employee"><a href="#2-更新Employee" class="headerlink" title="2. 更新Employee"></a>2. 更新Employee</h3><p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">updateEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;update id=<span class="string">"updateEmp"</span>&gt;</span><br><span class="line">       update tbl_employee</span><br><span class="line">       set last_name=#&#123;lastName&#125;,email=#&#123;email&#125;,gender=#&#123;gender&#125;</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/update&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="number">2</span>, <span class="string">"jerry"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="string">"0"</span>);</span><br><span class="line"><span class="keyword">boolean</span> b = mapper.updateEmp(employee);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure>
-<p>（1）MyBatis会自动根据传入的对象，获取到id值，填充到where条件中进行更新<br>（2）update可以返回一个boolean类型，表示是否更新成功</p>
-<h3 id="3-根据Id删除Employee"><a href="#3-根据Id删除Employee" class="headerlink" title="3. 根据Id删除Employee"></a>3. 根据Id删除Employee</h3><p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">deleteEmp</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;delete id=<span class="string">"deleteEmp"</span>&gt;</span><br><span class="line">       delete from tbl_employee</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/delete&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">Long deleteEmp = mapper.deleteEmp(<span class="number">2</span>);</span><br><span class="line">System.out.println(deleteEmp);</span><br></pre></td></tr></table></figure>
-<p>（1）delete可以返回一个Long类型的值，表示删除的条目数</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="==注意=="></a>==注意==</h3><p>由于在创建SqlSession对象时，默认不会自动提交数据<br>因此在CRUD操作完成后一定要手动提交数据</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
-<h3 id="4-多个输入参数的查询"><a href="#4-多个输入参数的查询" class="headerlink" title="4. 多个输入参数的查询"></a>4. 多个输入参数的查询</h3><h6 id="方法一：命名参数-Param-quot-quot"><a href="#方法一：命名参数-Param-quot-quot" class="headerlink" title="方法一：命名参数 @Param(&quot; &quot;)"></a>方法一：命名参数 <code>@Param(&quot; &quot;)</code></h6><p>EmployeeMapper接口：根据id和lastName获取Emp</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByIdAndLastName</span><span class="params">(@Param(<span class="string">"id"</span>)</span> Integer id, @<span class="title">Param</span><span class="params">(<span class="string">"lastName"</span>)</span> String lastName)</span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdAndLastName"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where id=#&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个参数：命名参数</span></span><br><span class="line">Employee employee = mapper.getEmpByIdAndLastName(<span class="number">1</span>, <span class="string">"tom"</span>);</span><br><span class="line">System.out.println(employee);</span><br></pre></td></tr></table></figure>
-<h6 id="方法二：POJO的Map（将多个参数封装成map）"><a href="#方法二：POJO的Map（将多个参数封装成map）" class="headerlink" title="方法二：POJO的Map（将多个参数封装成map）"></a>方法二：POJO的Map（将多个参数封装成map）</h6><p>EmployeeMapper接口：根据id和lastName获取Emp</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByMap</span><span class="params">(Map&lt;String, Object&gt; map)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByMap"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;!-- 参数值的获取 #&#123;&#125;和$&#123;&#125;--&gt;</span><br><span class="line">       select * from $&#123;tableName&#125; where id=$&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Map</span></span><br><span class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">"id"</span>, <span class="number">1</span>);</span><br><span class="line">map.put(<span class="string">"lastName"</span>, <span class="string">"Tom"</span>);</span><br><span class="line"><span class="comment">// 使用 $&#123;&#125; 对 表名 进行拼接</span></span><br><span class="line">map.put(<span class="string">"tableName"</span>, <span class="string">"tbl_employee"</span>);</span><br><span class="line">Employee employee = mapper.getEmpByMap(map);</span><br><span class="line">System.out.println(employee);</span><br></pre></td></tr></table></figure>
-<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="==注意=="></a>==注意==</h3><p>参数值的获取方式：<code>#{ }</code>和<code>${ }</code><br>对于表名，只能使用<code>${ }</code></p>
-<h3 id="5-模糊查询"><a href="#5-模糊查询" class="headerlink" title="5. 模糊查询"></a>5. 模糊查询</h3><h5 id="A-返回List类型"><a href="#A-返回List类型" class="headerlink" title="A. 返回List类型"></a>A. 返回List类型</h5><p>EmployeeMapper接口：对名字进行模糊查询</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByLastNameLike</span><span class="params">(String lastName)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByLastNameLike"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where last_name like #&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模糊查询（名字含有e字母的），返回集合List类型</span></span><br><span class="line">List&lt;Employee&gt; like = mapper.getEmpsByLastNameLike(<span class="string">"%e%"</span>);</span><br><span class="line"><span class="keyword">for</span> (Employee employee : like) &#123;</span><br><span class="line">	System.out.println(employee);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）如果查询返回的是一个List集合，<code>resultType</code>要写集合中元素的类型 —— Employee</p>
-<h5 id="B-返回Map类型，key：列名，value：列对应的值"><a href="#B-返回Map类型，key：列名，value：列对应的值" class="headerlink" title="B. 返回Map类型，key：列名，value：列对应的值"></a>B. 返回Map类型，key：列名，value：列对应的值</h5><p>EmployeeMapper接口：根据id查询</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getEmpByIdReturnMap</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdReturnMap"</span> resultType=<span class="string">"map"</span>&gt;</span><br><span class="line">       select * from tbl_employee where id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回Map类型</span></span><br><span class="line">Map&lt;String, Object&gt; map = mapper.getEmpByIdReturnMap(<span class="number">1</span>);</span><br><span class="line">System.out.println(map);</span><br></pre></td></tr></table></figure>
-<p>（1）如果返回的是一个Map，<code>resultType</code>要写map</p>
-<h5 id="B-返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）"><a href="#B-返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）" class="headerlink" title="B. 返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）"></a>B. 返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）</h5><p>EmployeeMapper接口：模糊查询多条记录</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MapKey</span>(<span class="string">"id"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> Map&lt;Integer, Employee&gt; <span class="title">getEmpByLastNameLikeReturnMap</span><span class="params">(String lastName)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>xml映射文件</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByLastNameLikeReturnMap"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where last_name like #&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多条记录封装成一个map</span></span><br><span class="line">Map&lt;Integer, Employee&gt; map = mapper.getEmpByLastNameLikeReturnMap(<span class="string">"%r%"</span>);</span><br><span class="line">System.out.println(map);</span><br></pre></td></tr></table></figure>
-<p>（1）如果返回的是一个存储多条记录的Map，resultType要写map中存储的value对象类型<br>（2）<code>@MapKey(&quot;id&quot;)</code>：告诉MyBatis封装这个map时，使用哪个属性作为map的key</p>
-]]></content>
+<p>@<a href="MyBatis（5）">TOC</a></p>
+<h2 id="一、一级缓存（本地缓存）"><a href="#一、一级缓存（本地缓存）" class="headerlink" title="一、一级缓存（本地缓存）"></a>一、一级缓存（本地缓存）</h2><p><strong>1. 与数据库同一次会话期间，查询到的数据会放在本地缓存中<br>2. 以后如果需要获取相同的数据，直接从缓存中拿，没必要再去查询数据库<br>3.  sqlSession级别的缓存，一直开启的 —— 实际上就是sqlSession级别的一个Map</strong></p>
+<pre><code>一级缓存失效情况（发送多个sql语句）：
+1. sqlSession不同
+2. sqlSession相同，查询条件不同（当前一级缓存中没有这个数据）
+3. sqlSession相同，两次查询之间执行了增删改操作（这次增删改操作可能对当前数据有影响）——因为设置了flushCache=&quot;true&quot;
+4. sqlSession相同，手动清除了一级缓存 openSession.clearCache();</code></pre><h2 id="二、二级缓存（全局缓存）"><a href="#二、二级缓存（全局缓存）" class="headerlink" title="二、二级缓存（全局缓存）"></a>二、二级缓存（全局缓存）</h2><p><strong>1. 基于NameSpace级别的缓存 —— 一个NameSpace就对应一个二级缓存<br>2. 工作机制：<br>     *  1）一个会话查询一条数据，这个数据就会被放在当前会话的一级缓存中<br>     *  2）如果会话关闭，一级缓存的数据会被保存到二级缓存中；新的会话查询信息，就可以参照二级缓存中的内容<br>     *  3）sqlSession：<br>     *      (1) EmployeeMapper ==&gt; Employee<br>     *      (2) DepartmentMapper ==&gt; Department<br>     *    不同的NameSpace查出的数据会放在对应的缓存（map）中</strong></p>
+<pre><code>使用步骤
+ *  1. 开启全局二级缓存配置：&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+ *  2. 在每个Mapper.xml中配置二级缓存
+ *  3. POJO（每个JavaBean对象）需要实现`Serializable `序列化接口</code></pre><p>具体代码：</p>
+<p>全局配置文件mybatis-config.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"cacheEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">   &lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+<p><code>cache</code>标签：二级缓存<br><code>eviction</code>属性：缓存的回收策略<br><code>flushInterval</code>属性：缓存刷新间隔<br><code>readOnly</code>属性：是否只读</p>
+<pre><code>true：只读，所有从缓存中获取数据的操作都是只读操作，不会修改数据
+                   为了加快获取速度，直接将数据在缓存中的引用交给用户
+             —— 不安全，速度快
+false：非只读，获取的数据可能被修改，mybatis会利用序列化和反序列化克隆一份新的数据给用户
+             —— 安全，速度慢</code></pre><p><code>size</code>属性：缓存中存放多少个元素<br><code>type</code>属性：自定义缓存的全类名 —— 实现Cache接口即可（可以实现第三方缓存整合）</p>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;cache eviction=<span class="string">"FIFO"</span> flushInterval=<span class="string">"60000"</span> readOnly=<span class="string">"false"</span> size=<span class="string">"1024"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>Employee.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意==<br>在MapperXml配置文件的<code>select</code>标签不能添加<code>useCache=&quot;true&quot; flushCache=&quot;true&quot;</code>设置，否则会刷新缓存</p>
+<p>==查出的数据会默认先放在一级缓存中，只有关闭会话后，一级缓存中的数据才会转移到二级缓存中==</p>
+<h2 id="三、和缓存相关的设置-属性："><a href="#三、和缓存相关的设置-属性：" class="headerlink" title="三、和缓存相关的设置/属性："></a>三、和缓存相关的设置/属性：</h2><pre><code>*  1. &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
+*  2. 每个select标签都有 useCache=&quot;true&quot; 设置
+*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
+*  3. 增删改标签： flushCache=&quot;true&quot;，！！！每次执行完都会清除缓存！！！
+*      当设置成true时，一级、二级缓存都会被清除
+*  4. 查询标签： flushCache=&quot;false&quot;
+*      当设置成true时，一级、二级缓存都会被清除
+*  5. openSession.clearCache()：只是清除当前session的一级缓存
+*  6. localCacheScope：本地缓存作用域（一级缓存）
+*      （1）session：当前会话的所有数据保存在会话缓存中
+*      （2）statement：可以禁用一级缓存</code></pre><h2 id="四、ehcache第三方缓存整合"><a href="#四、ehcache第三方缓存整合" class="headerlink" title="四、ehcache第三方缓存整合"></a>四、ehcache第三方缓存整合</h2><pre><code>步骤：
+1. 导入第三方缓存包
+2. 导入与第三方缓存整合的适配包
+3. xxMapper.xml中定义自定义缓存 &lt;cache type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;/&gt;</code></pre>]]></content>
       <categories>
         <category>MyBatis</category>
       </categories>
@@ -267,8 +248,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring Boot常见报错总结</title>
+    <url>/2020/ckbjbf79i000dmwvf6l4g86q3/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p>@[TOC](Spring Boot常见报错)</p>
+<h1 id="Spring-Boot常见报错总结"><a href="#Spring-Boot常见报错总结" class="headerlink" title="Spring Boot常见报错总结"></a>Spring Boot常见报错总结</h1><h2 id="1-Valid没有效果"><a href="#1-Valid没有效果" class="headerlink" title="1. @Valid没有效果"></a>1. @Valid没有效果</h2><p>在配合使用@Valid和@Min注解时，发现没有起到效果。</p>
+<p>pom.xml中添加依赖项：</p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;
+        &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+    &lt;/dependency&gt;</code></pre><p>引入对应的类</p>
+<pre><code>import javax.validation.Valid;
+import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><a href="#2-findOne-报错" class="headerlink" title="2. findOne()报错"></a>2. findOne()报错</h2><p>spring boot 新版本的问题，现在findOne返回的是 Optional 对象。</p>
+<p>如果传id可直接调用findById方法，若传对象则调用findOne方法</p>
+<pre><code>girlRepository.findById(id).orElse(null);</code></pre>]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MyBatis总结（3）</title>
-    <url>/2020/ckbj44yvm000ek4vfa01ugqyr/</url>
+    <url>/2020/ckbjbf79l000imwvfhofj2vd5/</url>
     <content><![CDATA[<a id="more"></a>
 
 
@@ -367,158 +371,79 @@
       </tags>
   </entry>
   <entry>
-    <title>MyBatis（5）</title>
-    <url>/2020/ckbj44yvp000jk4vf34py1x4z/</url>
+    <title>MyBatis总结（2）</title>
+    <url>/2020/ckbjbf79m000jmwvf4ok51f94/</url>
     <content><![CDATA[<a id="more"></a>
 
-<p>@<a href="MyBatis（5）">TOC</a></p>
-<h2 id="一、一级缓存（本地缓存）"><a href="#一、一级缓存（本地缓存）" class="headerlink" title="一、一级缓存（本地缓存）"></a>一、一级缓存（本地缓存）</h2><p><strong>1. 与数据库同一次会话期间，查询到的数据会放在本地缓存中<br>2. 以后如果需要获取相同的数据，直接从缓存中拿，没必要再去查询数据库<br>3.  sqlSession级别的缓存，一直开启的 —— 实际上就是sqlSession级别的一个Map</strong></p>
-<pre><code>一级缓存失效情况（发送多个sql语句）：
-1. sqlSession不同
-2. sqlSession相同，查询条件不同（当前一级缓存中没有这个数据）
-3. sqlSession相同，两次查询之间执行了增删改操作（这次增删改操作可能对当前数据有影响）——因为设置了flushCache=&quot;true&quot;
-4. sqlSession相同，手动清除了一级缓存 openSession.clearCache();</code></pre><h2 id="二、二级缓存（全局缓存）"><a href="#二、二级缓存（全局缓存）" class="headerlink" title="二、二级缓存（全局缓存）"></a>二、二级缓存（全局缓存）</h2><p><strong>1. 基于NameSpace级别的缓存 —— 一个NameSpace就对应一个二级缓存<br>2. 工作机制：<br>     *  1）一个会话查询一条数据，这个数据就会被放在当前会话的一级缓存中<br>     *  2）如果会话关闭，一级缓存的数据会被保存到二级缓存中；新的会话查询信息，就可以参照二级缓存中的内容<br>     *  3）sqlSession：<br>     *      (1) EmployeeMapper ==&gt; Employee<br>     *      (2) DepartmentMapper ==&gt; Department<br>     *    不同的NameSpace查出的数据会放在对应的缓存（map）中</strong></p>
-<pre><code>使用步骤
- *  1. 开启全局二级缓存配置：&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
- *  2. 在每个Mapper.xml中配置二级缓存
- *  3. POJO（每个JavaBean对象）需要实现`Serializable `序列化接口</code></pre><p>具体代码：</p>
-<p>全局配置文件mybatis-config.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"cacheEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">   &lt;/settings&gt;</span><br></pre></td></tr></table></figure>
-<p><code>cache</code>标签：二级缓存<br><code>eviction</code>属性：缓存的回收策略<br><code>flushInterval</code>属性：缓存刷新间隔<br><code>readOnly</code>属性：是否只读</p>
-<pre><code>true：只读，所有从缓存中获取数据的操作都是只读操作，不会修改数据
-                   为了加快获取速度，直接将数据在缓存中的引用交给用户
-             —— 不安全，速度快
-false：非只读，获取的数据可能被修改，mybatis会利用序列化和反序列化克隆一份新的数据给用户
-             —— 安全，速度慢</code></pre><p><code>size</code>属性：缓存中存放多少个元素<br><code>type</code>属性：自定义缓存的全类名 —— 实现Cache接口即可（可以实现第三方缓存整合）</p>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;cache eviction=<span class="string">"FIFO"</span> flushInterval=<span class="string">"60000"</span> readOnly=<span class="string">"false"</span> size=<span class="string">"1024"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>Employee.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==注意==<br>在MapperXml配置文件的<code>select</code>标签不能添加<code>useCache=&quot;true&quot; flushCache=&quot;true&quot;</code>设置，否则会刷新缓存</p>
-<p>==查出的数据会默认先放在一级缓存中，只有关闭会话后，一级缓存中的数据才会转移到二级缓存中==</p>
-<h2 id="三、和缓存相关的设置-属性："><a href="#三、和缓存相关的设置-属性：" class="headerlink" title="三、和缓存相关的设置/属性："></a>三、和缓存相关的设置/属性：</h2><pre><code>*  1. &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
-*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
-*  2. 每个select标签都有 useCache=&quot;true&quot; 设置
-*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
-*  3. 增删改标签： flushCache=&quot;true&quot;，！！！每次执行完都会清除缓存！！！
-*      当设置成true时，一级、二级缓存都会被清除
-*  4. 查询标签： flushCache=&quot;false&quot;
-*      当设置成true时，一级、二级缓存都会被清除
-*  5. openSession.clearCache()：只是清除当前session的一级缓存
-*  6. localCacheScope：本地缓存作用域（一级缓存）
-*      （1）session：当前会话的所有数据保存在会话缓存中
-*      （2）statement：可以禁用一级缓存</code></pre><h2 id="四、ehcache第三方缓存整合"><a href="#四、ehcache第三方缓存整合" class="headerlink" title="四、ehcache第三方缓存整合"></a>四、ehcache第三方缓存整合</h2><pre><code>步骤：
-1. 导入第三方缓存包
-2. 导入与第三方缓存整合的适配包
-3. xxMapper.xml中定义自定义缓存 &lt;cache type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;/&gt;</code></pre>]]></content>
+<p>@<a href="MyBatis（2）">TOC</a> </p>
+<h2 id="一、增删改查CRUD的映射文件配置"><a href="#一、增删改查CRUD的映射文件配置" class="headerlink" title="一、增删改查CRUD的映射文件配置"></a>一、增删改查CRUD的映射文件配置</h2><h3 id="1-增加Employee"><a href="#1-增加Employee" class="headerlink" title="1. 增加Employee"></a>1. 增加Employee</h3><p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">addEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"addEmp"</span> parameterType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span></span><br><span class="line">useGeneratedKeys=<span class="string">"true"</span> keyProperty=<span class="string">"id"</span>&gt;</span><br><span class="line">    <span class="function">insert into <span class="title">tbl_employee</span><span class="params">(last_name,email,gender)</span></span></span><br><span class="line"><span class="function">    <span class="title">values</span><span class="params">(#&#123;lastName&#125;,#&#123;email&#125;,#&#123;gender&#125;)</span></span></span><br><span class="line"><span class="function">&lt;/insert&gt;</span></span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"jerry"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="string">"1"</span>);</span><br><span class="line">Long addEmp = mapper.addEmp(employee);</span><br><span class="line">System.out.println(addEmp);</span><br><span class="line"><span class="comment">// 获取自增主键的值</span></span><br><span class="line">System.out.println(employee.getId());</span><br></pre></td></tr></table></figure>
+<p>（1）由于是增加操作，所以返回值可以是update的条目数，而输入的参数是Employee对象，所以在xml配置文件中使用<code>parameterType</code>表示参数类型<br>（2）对于自增主键id，<code>useGeneratedKeys=&quot;true&quot;</code>表示使用自增主键获取主键值策略；<code>keyProperty=&quot;id&quot;</code>指定对应的主键属性，使得MyBatis获取到主键后，将这个值封装给对象的哪个属性</p>
+<h3 id="2-更新Employee"><a href="#2-更新Employee" class="headerlink" title="2. 更新Employee"></a>2. 更新Employee</h3><p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">updateEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;update id=<span class="string">"updateEmp"</span>&gt;</span><br><span class="line">       update tbl_employee</span><br><span class="line">       set last_name=#&#123;lastName&#125;,email=#&#123;email&#125;,gender=#&#123;gender&#125;</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/update&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="number">2</span>, <span class="string">"jerry"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="string">"0"</span>);</span><br><span class="line"><span class="keyword">boolean</span> b = mapper.updateEmp(employee);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure>
+<p>（1）MyBatis会自动根据传入的对象，获取到id值，填充到where条件中进行更新<br>（2）update可以返回一个boolean类型，表示是否更新成功</p>
+<h3 id="3-根据Id删除Employee"><a href="#3-根据Id删除Employee" class="headerlink" title="3. 根据Id删除Employee"></a>3. 根据Id删除Employee</h3><p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">deleteEmp</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;delete id=<span class="string">"deleteEmp"</span>&gt;</span><br><span class="line">       delete from tbl_employee</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/delete&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">Long deleteEmp = mapper.deleteEmp(<span class="number">2</span>);</span><br><span class="line">System.out.println(deleteEmp);</span><br></pre></td></tr></table></figure>
+<p>（1）delete可以返回一个Long类型的值，表示删除的条目数</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="==注意=="></a>==注意==</h3><p>由于在创建SqlSession对象时，默认不会自动提交数据<br>因此在CRUD操作完成后一定要手动提交数据</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
+<h3 id="4-多个输入参数的查询"><a href="#4-多个输入参数的查询" class="headerlink" title="4. 多个输入参数的查询"></a>4. 多个输入参数的查询</h3><h6 id="方法一：命名参数-Param-quot-quot"><a href="#方法一：命名参数-Param-quot-quot" class="headerlink" title="方法一：命名参数 @Param(&quot; &quot;)"></a>方法一：命名参数 <code>@Param(&quot; &quot;)</code></h6><p>EmployeeMapper接口：根据id和lastName获取Emp</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByIdAndLastName</span><span class="params">(@Param(<span class="string">"id"</span>)</span> Integer id, @<span class="title">Param</span><span class="params">(<span class="string">"lastName"</span>)</span> String lastName)</span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdAndLastName"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where id=#&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个参数：命名参数</span></span><br><span class="line">Employee employee = mapper.getEmpByIdAndLastName(<span class="number">1</span>, <span class="string">"tom"</span>);</span><br><span class="line">System.out.println(employee);</span><br></pre></td></tr></table></figure>
+<h6 id="方法二：POJO的Map（将多个参数封装成map）"><a href="#方法二：POJO的Map（将多个参数封装成map）" class="headerlink" title="方法二：POJO的Map（将多个参数封装成map）"></a>方法二：POJO的Map（将多个参数封装成map）</h6><p>EmployeeMapper接口：根据id和lastName获取Emp</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getEmpByMap</span><span class="params">(Map&lt;String, Object&gt; map)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByMap"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       &lt;!-- 参数值的获取 #&#123;&#125;和$&#123;&#125;--&gt;</span><br><span class="line">       select * from $&#123;tableName&#125; where id=$&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Map</span></span><br><span class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">"id"</span>, <span class="number">1</span>);</span><br><span class="line">map.put(<span class="string">"lastName"</span>, <span class="string">"Tom"</span>);</span><br><span class="line"><span class="comment">// 使用 $&#123;&#125; 对 表名 进行拼接</span></span><br><span class="line">map.put(<span class="string">"tableName"</span>, <span class="string">"tbl_employee"</span>);</span><br><span class="line">Employee employee = mapper.getEmpByMap(map);</span><br><span class="line">System.out.println(employee);</span><br></pre></td></tr></table></figure>
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="==注意=="></a>==注意==</h3><p>参数值的获取方式：<code>#{ }</code>和<code>${ }</code><br>对于表名，只能使用<code>${ }</code></p>
+<h3 id="5-模糊查询"><a href="#5-模糊查询" class="headerlink" title="5. 模糊查询"></a>5. 模糊查询</h3><h5 id="A-返回List类型"><a href="#A-返回List类型" class="headerlink" title="A. 返回List类型"></a>A. 返回List类型</h5><p>EmployeeMapper接口：对名字进行模糊查询</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByLastNameLike</span><span class="params">(String lastName)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByLastNameLike"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where last_name like #&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模糊查询（名字含有e字母的），返回集合List类型</span></span><br><span class="line">List&lt;Employee&gt; like = mapper.getEmpsByLastNameLike(<span class="string">"%e%"</span>);</span><br><span class="line"><span class="keyword">for</span> (Employee employee : like) &#123;</span><br><span class="line">	System.out.println(employee);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）如果查询返回的是一个List集合，<code>resultType</code>要写集合中元素的类型 —— Employee</p>
+<h5 id="B-返回Map类型，key：列名，value：列对应的值"><a href="#B-返回Map类型，key：列名，value：列对应的值" class="headerlink" title="B. 返回Map类型，key：列名，value：列对应的值"></a>B. 返回Map类型，key：列名，value：列对应的值</h5><p>EmployeeMapper接口：根据id查询</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getEmpByIdReturnMap</span><span class="params">(Integer id)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByIdReturnMap"</span> resultType=<span class="string">"map"</span>&gt;</span><br><span class="line">       select * from tbl_employee where id=#&#123;id&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回Map类型</span></span><br><span class="line">Map&lt;String, Object&gt; map = mapper.getEmpByIdReturnMap(<span class="number">1</span>);</span><br><span class="line">System.out.println(map);</span><br></pre></td></tr></table></figure>
+<p>（1）如果返回的是一个Map，<code>resultType</code>要写map</p>
+<h5 id="B-返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）"><a href="#B-返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）" class="headerlink" title="B. 返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）"></a>B. 返回多条记录封装的Map类型，key：主键，value：每一条记录（对象）</h5><p>EmployeeMapper接口：模糊查询多条记录</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MapKey</span>(<span class="string">"id"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> Map&lt;Integer, Employee&gt; <span class="title">getEmpByLastNameLikeReturnMap</span><span class="params">(String lastName)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>xml映射文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpByLastNameLikeReturnMap"</span> resultType=<span class="string">"mybatis_3_mapper.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from tbl_employee where last_name like #&#123;lastName&#125;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">EmployeeMapper mapper = openSession.getMapper(EmployeeMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多条记录封装成一个map</span></span><br><span class="line">Map&lt;Integer, Employee&gt; map = mapper.getEmpByLastNameLikeReturnMap(<span class="string">"%r%"</span>);</span><br><span class="line">System.out.println(map);</span><br></pre></td></tr></table></figure>
+<p>（1）如果返回的是一个存储多条记录的Map，resultType要写map中存储的value对象类型<br>（2）<code>@MapKey(&quot;id&quot;)</code>：告诉MyBatis封装这个map时，使用哪个属性作为map的key</p>
+]]></content>
       <categories>
         <category>MyBatis</category>
       </categories>
       <tags>
         <tag>mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MyBatis总结（4）</title>
-    <url>/2020/ckbj44yvq000lk4vfbx0kde7b/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="MyBatis（4）"><a href="#MyBatis（4）" class="headerlink" title="MyBatis（4）"></a>MyBatis（4）</h1><h2 id="一、DynamicSQL-动态SQL"><a href="#一、DynamicSQL-动态SQL" class="headerlink" title="一、DynamicSQL 动态SQL"></a>一、DynamicSQL 动态SQL</h2><h3 id="1-if标签——用于判断"><a href="#1-if标签——用于判断" class="headerlink" title="1. if标签——用于判断"></a>1. <code>if</code>标签——用于判断</h3><p><code>test</code>属性：判断表达式OGNL</p>
-<p>要求：查询哪个字段（即传入了哪个字段），那么查询条件就带上这个字段的值</p>
-<p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionIf</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionIf"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select *</span><br><span class="line">       from mybatis.tbl_employee</span><br><span class="line">       &lt;where&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">               id = #&#123;id&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null &amp;amp;&amp;amp; lastName!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">               and last_name like #&#123;lastName&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"email!=null and email.trim()!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">               and email = #&#123;email&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"gender==0 or gender==1"</span>&gt;</span><br><span class="line">               and gender = #&#123;gender&#125;;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/where&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>（1）<code>where</code>标签：将所有的查询条件包含在内，但是只会去掉开头的第一个多出来的and或者or —— 解决sql拼串问题<br>（2）<code>test</code>表达式中遇到特殊符号应写转义字符，具体参考OGNL官方文档<br>（3） 在if内部的查询条件中，==and要写在前面==</p>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">1</span>：</span><br><span class="line">	<span class="comment">// gender为空：查询条件不带gender —— where id = ? and last_name like ? and email = ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">4</span>, <span class="string">"%e%"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">2</span>：</span><br><span class="line">	<span class="comment">// email和gender为空：查询条件不带email和gender —— where id = ? and last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">4</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">3</span>：</span><br><span class="line">	<span class="comment">// id，email，gender为空，由于第一个条件不满足，所以需要使用where标签，否则会报错：where and last_name like ? —— 正确发送的sql：WHERE last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Employee&gt; emps = mapper.getEmpsByConditionIf(employee);</span><br><span class="line"><span class="keyword">for</span> (Employee emp : emps) &#123;</span><br><span class="line">	System.out.println(emp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-trim标签——字符串截取"><a href="#2-trim标签——字符串截取" class="headerlink" title="2. trim标签——字符串截取"></a>2. <code>trim</code>标签——字符串截取</h3><p>（1）<code>prefix</code>：前缀，给拼串后的字符串加一个前缀<br>（2）<code>prefixOverrides</code>：前缀覆盖，去掉整个字符串前面的字符<br>（3）<code>suffix</code>：后缀，给拼串后的字符串加一个后缀<br>（4）<code>suffixOverrides</code>：后缀覆盖，去掉整个字符串后面的字符</p>
-<p>用途：如果在查询条件后面多出and或者or，<code>where</code>标签是解决不了的，可以使用<code>trim</code>标签进行截取</p>
-<p>==<code>where</code>标签体的改进：==</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">      from mybatis.tbl_employee</span><br><span class="line">      </span><br><span class="line">&lt;trim prefix=<span class="string">"where"</span> suffixOverrides=<span class="string">"and"</span>&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">              id = #&#123;id&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null &amp;amp;&amp;amp; lastName!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">              last_name like #&#123;lastName&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"email!=null and email.trim()!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">              email = #&#123;email&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"gender==0 or gender==1"</span>&gt;</span><br><span class="line">              gender = #&#123;gender&#125;;</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">      &lt;/trim&gt;</span><br></pre></td></tr></table></figure>
-<p>这里就表示在整个字符串前加上<code>where</code>，在整个字符串后去掉<code>and</code></p>
-<h3 id="3-choose-when-otherwise：分支选择switch-case"><a href="#3-choose-when-otherwise：分支选择switch-case" class="headerlink" title="3. choose-when-otherwise：分支选择switch-case"></a>3. <code>choose-when-otherwise</code>：分支选择switch-case</h3><p>要求：只查询一个，如果带了id就用id查，如果带了lastName就用lastName查</p>
-<p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionChoose</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionChoose"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select *</span><br><span class="line">       from mybatis.tbl_employee</span><br><span class="line">       &lt;where&gt;</span><br><span class="line">           &lt;choose&gt;</span><br><span class="line">               &lt;when test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">                   id=#&#123;id&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;when test=<span class="string">"lastName!=null"</span>&gt;</span><br><span class="line">                   last_name like #&#123;lastName&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;when test=<span class="string">"email!=null"</span>&gt;</span><br><span class="line">                   email=#&#123;email&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;otherwise&gt;</span><br><span class="line">                   gender=<span class="number">0</span></span><br><span class="line">               &lt;/otherwise&gt;</span><br><span class="line">           &lt;/choose&gt;</span><br><span class="line">       &lt;/where&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">1</span>：</span><br><span class="line">	<span class="comment">// where last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">2</span>：</span><br><span class="line">	<span class="comment">// where id=?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">1</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">3</span>：</span><br><span class="line">	<span class="comment">// where gender=0</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Employee&gt; emps = mapper.getEmpsByConditionChoose(employee);</span><br><span class="line"><span class="keyword">for</span> (Employee emp : emps) &#123;</span><br><span class="line">	System.out.println(emp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、-set标签"><a href="#4、-set标签" class="headerlink" title="4、 set标签"></a>4、 <code>set</code>标签</h3><p>可以防止每个sql语句后的逗号</p>
-<p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;update id=<span class="string">"updateEmp"</span>&gt;</span><br><span class="line">       update mybatis.tbl_employee</span><br><span class="line">       </span><br><span class="line">       &lt;set&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null"</span>&gt;</span><br><span class="line">               last_name=#&#123;lastName&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"email!=null"</span>&gt;</span><br><span class="line">               email=#&#123;email&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"gender!=null"</span>&gt;</span><br><span class="line">               gender=#&#123;gender&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/set&gt;</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/update&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// SET last_name=? where id=?</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="number">1</span>, <span class="string">"Admin"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">mapper.updateEmp(employee);</span><br><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
-<h3 id="5、foreach标签"><a href="#5、foreach标签" class="headerlink" title="5、foreach标签"></a>5、<code>foreach</code>标签</h3><p>（1）<code>collection</code>：指定要遍历的集合名称<br>（2）<code>item</code>：将当前遍历集合得到的元素赋值给指定的变量<br>（3）<code>separator</code>：元素之间的分隔符<br>（4）<code>open</code>：将遍历得到的所有结果，拼接一个开始的字符<br>（5）<code>close</code>：将遍历得到的所有结果，拼接一个结束的字符<br>（6）<code>index</code>：<br>     遍历list时，index：索引，item：当前值<br>     遍历map时，index：map的key，item：map的value<br> #{变量名}就能取出变量的值，也就是当前遍历集合得到的元素</p>
-<p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionForeach</span><span class="params">(@Param(<span class="string">"ids"</span>)</span>List&lt;Integer&gt; ids)</span>;</span><br></pre></td></tr></table></figure>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionForeach"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee </span><br><span class="line">       </span><br><span class="line">       &lt;foreach collection=<span class="string">"ids"</span> item=<span class="string">"item_id"</span> separator=<span class="string">","</span> open=<span class="string">"where id in ("</span> close=<span class="string">")"</span>&gt;</span><br><span class="line">           #&#123;item_id&#125;</span><br><span class="line">       &lt;/foreach&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// where id in ( ? , ? , ? , ? )</span></span><br><span class="line">List&lt;Employee&gt; list = mapper.getEmpsByConditionForeach(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>));</span><br><span class="line"><span class="keyword">for</span> (Employee employee : list) &#123;</span><br><span class="line">System.out.println(employee);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>==等效于：<code>&lt;!-- where id in (1, 2, 3, 4) --&gt;</code>==</p>
-<h3 id="6、-foreach的批量保存"><a href="#6、-foreach的批量保存" class="headerlink" title="6、 foreach的批量保存"></a>6、 <code>foreach</code>的批量保存</h3><p>EmployeeMapper接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEmps</span><span class="params">(@Param(<span class="string">"emps"</span>)</span>List&lt;Employee&gt; emps)</span>;</span><br></pre></td></tr></table></figure>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"addEmps"</span>&gt;</span><br><span class="line">       INSERT INTO mybatis.tbl_employee(last_name, email, gender, d_id)</span><br><span class="line">       VALUES</span><br><span class="line">           &lt;foreach collection=<span class="string">"emps"</span> item=<span class="string">"emp"</span> separator=<span class="string">","</span>&gt;</span><br><span class="line">               (#&#123;emp.lastName&#125;, #&#123;emp.email&#125;, #&#123;emp.gender&#125;, #&#123;emp.dept.id&#125;)</span><br><span class="line">           &lt;/foreach&gt;</span><br><span class="line">   &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
-<p>主函数</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// INSERT INTO mybatis.tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?) , (?, ?, ?, ?)</span></span><br><span class="line">List&lt;Employee&gt; emps = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">emps.add(<span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"tom"</span>, <span class="string">"tom@126.com"</span>, <span class="string">"0"</span>, <span class="keyword">new</span> Department(<span class="number">1</span>)));</span><br><span class="line">emps.add(<span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"frank"</span>, <span class="string">"frank@126.com"</span>, <span class="string">"1"</span>, <span class="keyword">new</span> Department(<span class="number">2</span>)));</span><br><span class="line"></span><br><span class="line">mapper.addEmps(emps);</span><br><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、MyBatis的两个内置参数"><a href="#二、MyBatis的两个内置参数" class="headerlink" title="二、MyBatis的两个内置参数"></a>二、MyBatis的两个内置参数</h2><pre><code>（1）_parameter：代表整个参数
-     对于单个参数：_parameter就是这个参数
-    对于多个参数：参数会被封装成一个map，那么_parameter就是这个map
-（2）_databaseId：
-    如果配置了DatabaseInProvider标签，那么_databaseId就是代表当前数据库的别名</code></pre><h2 id="三、bind标签"><a href="#三、bind标签" class="headerlink" title="三、bind标签"></a>三、<code>bind</code>标签</h2><p>可以将OGNL表达式的值绑定到一个变量中，方便后来引用这个变量的值<br>            （1）<code>name</code>：后续引用变量的名字<br>            （2）<code>value</code>：用于拼接的表达式</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;bind name=<span class="string">"_lastName"</span> value=<span class="string">"'%'+lastName+'%'"</span>/&gt;</span><br><span class="line">       &lt;<span class="keyword">if</span> test=<span class="string">"_databaseId=='mysql'"</span>&gt;</span><br><span class="line">           select * from mybatis.tbl_employee</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"_parameter!=null"</span>&gt; &lt;!-- _parameter就表示employee对象 --&gt;</span><br><span class="line">               where last_name like #&#123;_lastName&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/if&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="四、sql标签"><a href="#四、sql标签" class="headerlink" title="四、sql标签"></a>四、<code>sql</code>标签</h2><p>抽取可重用的sql片段，方便后面引用</p>
-<pre><code>1. sql抽取：将经常要查询或插入用的列名抽取出来，方面引用
-2. 在sql语句中，可以用include来引用已经抽取出来的sql
-3. include内部还可以自定义property，sql标签内部就能使用自定义的属性
-4. include-property的取值的正确方式：${prop}，不能用#{ }</code></pre>]]></content>
-      <categories>
-        <category>MyBatis</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring Boot常见报错总结</title>
-    <url>/2020/ckbj44yvs000qk4vf1je12ptp/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p>@[TOC](Spring Boot常见报错)</p>
-<h1 id="Spring-Boot常见报错总结"><a href="#Spring-Boot常见报错总结" class="headerlink" title="Spring Boot常见报错总结"></a>Spring Boot常见报错总结</h1><h2 id="1-Valid没有效果"><a href="#1-Valid没有效果" class="headerlink" title="1. @Valid没有效果"></a>1. @Valid没有效果</h2><p>在配合使用@Valid和@Min注解时，发现没有起到效果。</p>
-<p>pom.xml中添加依赖项：</p>
-<pre><code>&lt;dependency&gt;
-        &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;
-        &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
-    &lt;/dependency&gt;</code></pre><p>引入对应的类</p>
-<pre><code>import javax.validation.Valid;
-import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><a href="#2-findOne-报错" class="headerlink" title="2. findOne()报错"></a>2. findOne()报错</h2><p>spring boot 新版本的问题，现在findOne返回的是 Optional 对象。</p>
-<p>如果传id可直接调用findById方法，若传对象则调用findOne方法</p>
-<pre><code>girlRepository.findById(id).orElse(null);</code></pre>]]></content>
-      <categories>
-        <category>Spring Boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot java</tag>
       </tags>
   </entry>
   <entry>
     <title>SpringMVC（1）</title>
-    <url>/2020/ckbj44yvt000sk4vfghzkg1fw/</url>
+    <url>/2020/ckbjbf79o000omwvf1cj7a6q6/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="SpringMVC（1）"><a href="#SpringMVC（1）" class="headerlink" title="SpringMVC（1）"></a>SpringMVC（1）</h1><h3 id="一、三层架构"><a href="#一、三层架构" class="headerlink" title="一、三层架构"></a>一、三层架构</h3><pre><code>表现层：Web层，用于和客户端进行数据交互，采用MVC设计模型，Controller（SpringMVC）
@@ -650,8 +575,130 @@ import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><
       </tags>
   </entry>
   <entry>
+    <title>MyBatis总结（4）</title>
+    <url>/2020/ckbjbf79p000pmwvf6ujm2pm2/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="MyBatis（4）"><a href="#MyBatis（4）" class="headerlink" title="MyBatis（4）"></a>MyBatis（4）</h1><h2 id="一、DynamicSQL-动态SQL"><a href="#一、DynamicSQL-动态SQL" class="headerlink" title="一、DynamicSQL 动态SQL"></a>一、DynamicSQL 动态SQL</h2><h3 id="1-if标签——用于判断"><a href="#1-if标签——用于判断" class="headerlink" title="1. if标签——用于判断"></a>1. <code>if</code>标签——用于判断</h3><p><code>test</code>属性：判断表达式OGNL</p>
+<p>要求：查询哪个字段（即传入了哪个字段），那么查询条件就带上这个字段的值</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionIf</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionIf"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select *</span><br><span class="line">       from mybatis.tbl_employee</span><br><span class="line">       &lt;where&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">               id = #&#123;id&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null &amp;amp;&amp;amp; lastName!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">               and last_name like #&#123;lastName&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"email!=null and email.trim()!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">               and email = #&#123;email&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"gender==0 or gender==1"</span>&gt;</span><br><span class="line">               and gender = #&#123;gender&#125;;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/where&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>（1）<code>where</code>标签：将所有的查询条件包含在内，但是只会去掉开头的第一个多出来的and或者or —— 解决sql拼串问题<br>（2）<code>test</code>表达式中遇到特殊符号应写转义字符，具体参考OGNL官方文档<br>（3） 在if内部的查询条件中，==and要写在前面==</p>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">1</span>：</span><br><span class="line">	<span class="comment">// gender为空：查询条件不带gender —— where id = ? and last_name like ? and email = ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">4</span>, <span class="string">"%e%"</span>, <span class="string">"jerry@Lemon.com"</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">2</span>：</span><br><span class="line">	<span class="comment">// email和gender为空：查询条件不带email和gender —— where id = ? and last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">4</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">3</span>：</span><br><span class="line">	<span class="comment">// id，email，gender为空，由于第一个条件不满足，所以需要使用where标签，否则会报错：where and last_name like ? —— 正确发送的sql：WHERE last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Employee&gt; emps = mapper.getEmpsByConditionIf(employee);</span><br><span class="line"><span class="keyword">for</span> (Employee emp : emps) &#123;</span><br><span class="line">	System.out.println(emp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-trim标签——字符串截取"><a href="#2-trim标签——字符串截取" class="headerlink" title="2. trim标签——字符串截取"></a>2. <code>trim</code>标签——字符串截取</h3><p>（1）<code>prefix</code>：前缀，给拼串后的字符串加一个前缀<br>（2）<code>prefixOverrides</code>：前缀覆盖，去掉整个字符串前面的字符<br>（3）<code>suffix</code>：后缀，给拼串后的字符串加一个后缀<br>（4）<code>suffixOverrides</code>：后缀覆盖，去掉整个字符串后面的字符</p>
+<p>用途：如果在查询条件后面多出and或者or，<code>where</code>标签是解决不了的，可以使用<code>trim</code>标签进行截取</p>
+<p>==<code>where</code>标签体的改进：==</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">      from mybatis.tbl_employee</span><br><span class="line">      </span><br><span class="line">&lt;trim prefix=<span class="string">"where"</span> suffixOverrides=<span class="string">"and"</span>&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">              id = #&#123;id&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null &amp;amp;&amp;amp; lastName!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">              last_name like #&#123;lastName&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"email!=null and email.trim()!=&amp;quot;&amp;quot;"</span>&gt;</span><br><span class="line">              email = #&#123;email&#125; and</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">          &lt;<span class="keyword">if</span> test=<span class="string">"gender==0 or gender==1"</span>&gt;</span><br><span class="line">              gender = #&#123;gender&#125;;</span><br><span class="line">          &lt;/if&gt;</span><br><span class="line">      &lt;/trim&gt;</span><br></pre></td></tr></table></figure>
+<p>这里就表示在整个字符串前加上<code>where</code>，在整个字符串后去掉<code>and</code></p>
+<h3 id="3-choose-when-otherwise：分支选择switch-case"><a href="#3-choose-when-otherwise：分支选择switch-case" class="headerlink" title="3. choose-when-otherwise：分支选择switch-case"></a>3. <code>choose-when-otherwise</code>：分支选择switch-case</h3><p>要求：只查询一个，如果带了id就用id查，如果带了lastName就用lastName查</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionChoose</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionChoose"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select *</span><br><span class="line">       from mybatis.tbl_employee</span><br><span class="line">       &lt;where&gt;</span><br><span class="line">           &lt;choose&gt;</span><br><span class="line">               &lt;when test=<span class="string">"id!=null"</span>&gt;</span><br><span class="line">                   id=#&#123;id&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;when test=<span class="string">"lastName!=null"</span>&gt;</span><br><span class="line">                   last_name like #&#123;lastName&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;when test=<span class="string">"email!=null"</span>&gt;</span><br><span class="line">                   email=#&#123;email&#125;</span><br><span class="line">               &lt;/when&gt;</span><br><span class="line">               &lt;otherwise&gt;</span><br><span class="line">                   gender=<span class="number">0</span></span><br><span class="line">               &lt;/otherwise&gt;</span><br><span class="line">           &lt;/choose&gt;</span><br><span class="line">       &lt;/where&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">1</span>：</span><br><span class="line">	<span class="comment">// where last_name like ?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">2</span>：</span><br><span class="line">	<span class="comment">// where id=?</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="number">1</span>, <span class="string">"%e%"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">测试<span class="number">3</span>：</span><br><span class="line">	<span class="comment">// where gender=0</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Employee&gt; emps = mapper.getEmpsByConditionChoose(employee);</span><br><span class="line"><span class="keyword">for</span> (Employee emp : emps) &#123;</span><br><span class="line">	System.out.println(emp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、-set标签"><a href="#4、-set标签" class="headerlink" title="4、 set标签"></a>4、 <code>set</code>标签</h3><p>可以防止每个sql语句后的逗号</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateEmp</span><span class="params">(Employee employee)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;update id=<span class="string">"updateEmp"</span>&gt;</span><br><span class="line">       update mybatis.tbl_employee</span><br><span class="line">       </span><br><span class="line">       &lt;set&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"lastName!=null"</span>&gt;</span><br><span class="line">               last_name=#&#123;lastName&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"email!=null"</span>&gt;</span><br><span class="line">               email=#&#123;email&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"gender!=null"</span>&gt;</span><br><span class="line">               gender=#&#123;gender&#125;,</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/set&gt;</span><br><span class="line">       where id=#&#123;id&#125;</span><br><span class="line">   &lt;/update&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// SET last_name=? where id=?</span></span><br><span class="line">Employee employee = <span class="keyword">new</span> Employee(<span class="number">1</span>, <span class="string">"Admin"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">mapper.updateEmp(employee);</span><br><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
+<h3 id="5、foreach标签"><a href="#5、foreach标签" class="headerlink" title="5、foreach标签"></a>5、<code>foreach</code>标签</h3><p>（1）<code>collection</code>：指定要遍历的集合名称<br>（2）<code>item</code>：将当前遍历集合得到的元素赋值给指定的变量<br>（3）<code>separator</code>：元素之间的分隔符<br>（4）<code>open</code>：将遍历得到的所有结果，拼接一个开始的字符<br>（5）<code>close</code>：将遍历得到的所有结果，拼接一个结束的字符<br>（6）<code>index</code>：<br>     遍历list时，index：索引，item：当前值<br>     遍历map时，index：map的key，item：map的value<br> #{变量名}就能取出变量的值，也就是当前遍历集合得到的元素</p>
+<p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmpsByConditionForeach</span><span class="params">(@Param(<span class="string">"ids"</span>)</span>List&lt;Integer&gt; ids)</span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;select id=<span class="string">"getEmpsByConditionForeach"</span> resultType=<span class="string">"mybatis_4_DynamicSQL.com.Lemon.mybatis.bean.Employee"</span>&gt;</span><br><span class="line">       select * from mybatis.tbl_employee </span><br><span class="line">       </span><br><span class="line">       &lt;foreach collection=<span class="string">"ids"</span> item=<span class="string">"item_id"</span> separator=<span class="string">","</span> open=<span class="string">"where id in ("</span> close=<span class="string">")"</span>&gt;</span><br><span class="line">           #&#123;item_id&#125;</span><br><span class="line">       &lt;/foreach&gt;</span><br><span class="line">   &lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// where id in ( ? , ? , ? , ? )</span></span><br><span class="line">List&lt;Employee&gt; list = mapper.getEmpsByConditionForeach(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>));</span><br><span class="line"><span class="keyword">for</span> (Employee employee : list) &#123;</span><br><span class="line">System.out.println(employee);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>==等效于：<code>&lt;!-- where id in (1, 2, 3, 4) --&gt;</code>==</p>
+<h3 id="6、-foreach的批量保存"><a href="#6、-foreach的批量保存" class="headerlink" title="6、 foreach的批量保存"></a>6、 <code>foreach</code>的批量保存</h3><p>EmployeeMapper接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEmps</span><span class="params">(@Param(<span class="string">"emps"</span>)</span>List&lt;Employee&gt; emps)</span>;</span><br></pre></td></tr></table></figure>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;insert id=<span class="string">"addEmps"</span>&gt;</span><br><span class="line">       INSERT INTO mybatis.tbl_employee(last_name, email, gender, d_id)</span><br><span class="line">       VALUES</span><br><span class="line">           &lt;foreach collection=<span class="string">"emps"</span> item=<span class="string">"emp"</span> separator=<span class="string">","</span>&gt;</span><br><span class="line">               (#&#123;emp.lastName&#125;, #&#123;emp.email&#125;, #&#123;emp.gender&#125;, #&#123;emp.dept.id&#125;)</span><br><span class="line">           &lt;/foreach&gt;</span><br><span class="line">   &lt;/insert&gt;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// INSERT INTO mybatis.tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?) , (?, ?, ?, ?)</span></span><br><span class="line">List&lt;Employee&gt; emps = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">emps.add(<span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"tom"</span>, <span class="string">"tom@126.com"</span>, <span class="string">"0"</span>, <span class="keyword">new</span> Department(<span class="number">1</span>)));</span><br><span class="line">emps.add(<span class="keyword">new</span> Employee(<span class="keyword">null</span>, <span class="string">"frank"</span>, <span class="string">"frank@126.com"</span>, <span class="string">"1"</span>, <span class="keyword">new</span> Department(<span class="number">2</span>)));</span><br><span class="line"></span><br><span class="line">mapper.addEmps(emps);</span><br><span class="line">openSession.commit();</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、MyBatis的两个内置参数"><a href="#二、MyBatis的两个内置参数" class="headerlink" title="二、MyBatis的两个内置参数"></a>二、MyBatis的两个内置参数</h2><pre><code>（1）_parameter：代表整个参数
+     对于单个参数：_parameter就是这个参数
+    对于多个参数：参数会被封装成一个map，那么_parameter就是这个map
+（2）_databaseId：
+    如果配置了DatabaseInProvider标签，那么_databaseId就是代表当前数据库的别名</code></pre><h2 id="三、bind标签"><a href="#三、bind标签" class="headerlink" title="三、bind标签"></a>三、<code>bind</code>标签</h2><p>可以将OGNL表达式的值绑定到一个变量中，方便后来引用这个变量的值<br>            （1）<code>name</code>：后续引用变量的名字<br>            （2）<code>value</code>：用于拼接的表达式</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;bind name=<span class="string">"_lastName"</span> value=<span class="string">"'%'+lastName+'%'"</span>/&gt;</span><br><span class="line">       &lt;<span class="keyword">if</span> test=<span class="string">"_databaseId=='mysql'"</span>&gt;</span><br><span class="line">           select * from mybatis.tbl_employee</span><br><span class="line">           &lt;<span class="keyword">if</span> test=<span class="string">"_parameter!=null"</span>&gt; &lt;!-- _parameter就表示employee对象 --&gt;</span><br><span class="line">               where last_name like #&#123;_lastName&#125;</span><br><span class="line">           &lt;/if&gt;</span><br><span class="line">       &lt;/if&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="四、sql标签"><a href="#四、sql标签" class="headerlink" title="四、sql标签"></a>四、<code>sql</code>标签</h2><p>抽取可重用的sql片段，方便后面引用</p>
+<pre><code>1. sql抽取：将经常要查询或插入用的列名抽取出来，方面引用
+2. 在sql语句中，可以用include来引用已经抽取出来的sql
+3. include内部还可以自定义property，sql标签内部就能使用自定义的属性
+4. include-property的取值的正确方式：${prop}，不能用#{ }</code></pre>]]></content>
+      <categories>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/2020/about/</url>
+    <content><![CDATA[<blockquote>
+<p>A Coder, live in Nanjing, China.</p>
+</blockquote>
+<p>姓名：吴沛达<br>现居：南京<br>GitHub: <a href="https://github.com/Lemon-362" target="_blank" rel="noopener">Peida Wu</a><br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=1092529048&site=qq&menu=yes" target="_blank" rel="noopener">1092529048</a><br>微信: 18362086897</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC（4）</title>
+    <url>/2020/ckbjbf79t000vmwvfgyzr3as7/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="SpringMVC（4）"><a href="#SpringMVC（4）" class="headerlink" title="SpringMVC（4）"></a>SpringMVC（4）</h1><h2 id="SpringMVC实现文件上传"><a href="#SpringMVC实现文件上传" class="headerlink" title="SpringMVC实现文件上传"></a>SpringMVC实现文件上传</h2><h3 id="一、传统方式的文件上传"><a href="#一、传统方式的文件上传" class="headerlink" title="一、传统方式的文件上传"></a>一、传统方式的文件上传</h3><ol>
+<li>在<code>pom.xml</code>中引入<code>commons-fileupload</code>和<code>commons-io</code>jar包：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>文件上传的<code>index.jsp</code>页面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!-- 传统方式的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload1"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure></li>
+<li>文件上传的<code>UserController</code>控制器类：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 传统方式的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload1"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload1</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用fileupload组件完成文件上传</span></span><br><span class="line">        <span class="comment">// 上传的位置</span></span><br><span class="line">        String path = request.getSession().getServletContext().getRealPath(<span class="string">"/uploads/"</span>);</span><br><span class="line">        <span class="comment">// 判断该路径表示的文件夹是否存在</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(path);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            <span class="comment">// 创建该文件夹</span></span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析request对象，获取上传文件项</span></span><br><span class="line">        DiskFileItemFactory factory = <span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">        ServletFileUpload upload = <span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">        <span class="comment">// 解析request</span></span><br><span class="line">        List&lt;FileItem&gt; items = upload.parseRequest(request);</span><br><span class="line">        <span class="comment">// 遍历items文件项</span></span><br><span class="line">        <span class="keyword">for</span> (FileItem item : items) &#123;</span><br><span class="line">            <span class="comment">// 进行判断，当前item对象是否是上传文件项</span></span><br><span class="line">            <span class="keyword">if</span> (item.isFormField()) &#123; <span class="comment">// 说明是一个普通的表单项</span></span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// 说明是一个上传文件项</span></span><br><span class="line">                <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">                String filename = item.getName();</span><br><span class="line">                <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">                String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">                filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line">                <span class="comment">// 完成文件上传</span></span><br><span class="line">                item.write(<span class="keyword">new</span> File(path, filename));</span><br><span class="line">                <span class="comment">// 删除临时文件</span></span><br><span class="line">                item.delete();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==弊端==：需要自己解析<code>request对象</code>，获取上传文件项 —— 步骤繁琐</p>
+<h3 id="二、SpringMVC的文件上传"><a href="#二、SpringMVC的文件上传" class="headerlink" title="二、SpringMVC的文件上传"></a>二、SpringMVC的文件上传</h3><p><code>MultipartFile</code>：表示上传的文件对象，其名称必须和表单里<code>name=&quot;upload&quot;</code>名称相同<br><code>CommonsMultipartResolver</code>：文件解析器，只要配置了文件解析器，方法中就不需要自己解析文件了</p>
+<p>文件上传的<code>index.jsp</code>页面：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!-- SpringMVC的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload2"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>文件上传的<code>UserController</code>控制器类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload2</span><span class="params">(HttpServletRequest request, MultipartFile upload)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SpringMVC文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用fileupload组件完成文件上传</span></span><br><span class="line">        <span class="comment">// 上传的位置</span></span><br><span class="line">        String path = request.getSession().getServletContext().getRealPath(<span class="string">"/uploads/"</span>);</span><br><span class="line">        <span class="comment">// 判断该路径表示的文件夹是否存在</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(path);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            <span class="comment">// 创建该文件夹</span></span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">        String filename = upload.getOriginalFilename();</span><br><span class="line">        <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">        String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">        filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line">        <span class="comment">// 完成文件上传</span></span><br><span class="line">        upload.transferTo(<span class="keyword">new</span> File(path, filename));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意==：<br>（1）可以使用<code>UUID</code>把文件的名称设置成唯一值<br>（2）配置文件解析器对象<code>CommonsMultipartResolver</code>时，<code>id=&quot;multipartResolver&quot;</code> 不能改变，是固定写法。</p>
+<h3 id="三、跨服务器的文件上传"><a href="#三、跨服务器的文件上传" class="headerlink" title="三、跨服务器的文件上传"></a>三、跨服务器的文件上传</h3><p><code>Client</code>：客户端对象<br><code>Client.resource()</code>：用于和图片服务器进行连接<br><code>webResource.put()</code>：用于上传文件</p>
+<p>文件上传的<code>index.jsp</code>页面：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--  跨服务器的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload3"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>文件上传的<code>UserController</code>控制器类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 跨服务器的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload3"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload3</span><span class="params">(MultipartFile upload)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"跨服务器文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义上传文件服务器的路径：最后要有一个/</span></span><br><span class="line">        String path = <span class="string">"http://localhost:9090/uploads/"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">        String filename = upload.getOriginalFilename();</span><br><span class="line">        <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">        String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">        filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 完成文件上传，跨服务器上传</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建客户端的对象</span></span><br><span class="line">        Client client = Client.create();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 和图片服务器进行连接</span></span><br><span class="line">        WebResource webResource = client.resource(path + filename);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上传文件</span></span><br><span class="line">        webResource.put(upload.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意==：<br>（1）这里创建了两个local本地Tomcat服务器，一个端口号为8080，另一个端口号为9090<br>（2）定义上传文件服务器的路径：最后要有一个<code>/</code>，否则路径不对</p>
+]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringMVC（2）</title>
-    <url>/2020/ckbj44yvw000xk4vfa1py5ydt/</url>
+    <url>/2020/ckbjbf79v0010mwvf9kq3fvno/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="SpringMVC（2）"><a href="#SpringMVC（2）" class="headerlink" title="SpringMVC（2）"></a>SpringMVC（2）</h1><h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><h3 id="一、-RequestMapping"><a href="#一、-RequestMapping" class="headerlink" title="一、@RequestMapping"></a>一、<code>@RequestMapping</code></h3><ol>
@@ -797,77 +844,8 @@ import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><
       </tags>
   </entry>
   <entry>
-    <title>SpringMVC（5）</title>
-    <url>/2020/ckbj44yvy0010k4vfdrik8ag4/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="SpringMVC（5）"><a href="#SpringMVC（5）" class="headerlink" title="SpringMVC（5）"></a>SpringMVC（5）</h1><h2 id="SpringMVC的异常处理"><a href="#SpringMVC的异常处理" class="headerlink" title="SpringMVC的异常处理"></a>SpringMVC的异常处理</h2><h3 id="异常处理流程："><a href="#异常处理流程：" class="headerlink" title="异常处理流程："></a>异常处理流程：</h3><pre><code>dao ==&gt; service ==&gt; web ==&gt; 前端控制器 ==&gt; 页面
-如果不处理异常，那么直接会将异常抛到页面上</code></pre><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在前端控制器中配置异常处理器，进行异常处理</p>
-<p>（1）编写自定义异常类，做提示信息的<br>（2）编写异常处理器<br>（3）配置异常处理器，用于跳转异常页面</p>
-<h3 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h3><p><code>index.jsp</code>首页：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;a href="user/testException"&gt;testException&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p><code>SysException.java</code>自定义的异常类：系统异常</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储提示信息</span></span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SysException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>SysExceptionResolver.java</code>异常处理器类：需要实现<code>HandlerExceptionResolver</code>接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysExceptionResolver</span> <span class="keyword">implements</span> <span class="title">HandlerExceptionResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">resolveException</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取到异常对象</span></span><br><span class="line">        SysException e = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> SysException)&#123;</span><br><span class="line">            e = (SysException) ex;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            e = <span class="keyword">new</span> SysException(<span class="string">"系统正在维护"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建ModelAndView对象</span></span><br><span class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">        mv.setViewName(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>springmvc.xml</code>：配置异常处理器，用于跳转异常页面</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sysExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"com.Lemon.exception.SysExceptionResolver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>UserController</code>控制器类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/testException"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testException执行了..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模拟异常</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">10</span> / <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 打印异常信息</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="comment">// 抛出自定义异常信息</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SysException(<span class="string">"查询所有用户出现错误了..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>error.jsp</code>页面：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> isELIgnored=<span class="string">"false"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    $&#123;errorMsg&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>由于在异常处理器类<code>SysExceptionResolver</code>中创建<code>ModelAndView</code>对象：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">mv.setViewName(<span class="string">"error"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>当有异常时，SpringMVC会将异常捕获，并把异常存储到<code>ModelAndView</code>对象中（<code>mv.addObject(&quot;errorMsg&quot;, e.getMessage());</code>），同时设置了跳转的视图页面（<code>mv.setViewName(&quot;error&quot;);</code>）。</p>
-<p>因此出现异常，不会跳转到<code>success.jsp</code>页面，而是跳转到<code>error.jsp</code>页面。</p>
-]]></content>
-      <categories>
-        <category>SpringMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringMVC（4）</title>
-    <url>/2020/ckbj44yw00014k4vf8xjk6cmu/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="SpringMVC（4）"><a href="#SpringMVC（4）" class="headerlink" title="SpringMVC（4）"></a>SpringMVC（4）</h1><h2 id="SpringMVC实现文件上传"><a href="#SpringMVC实现文件上传" class="headerlink" title="SpringMVC实现文件上传"></a>SpringMVC实现文件上传</h2><h3 id="一、传统方式的文件上传"><a href="#一、传统方式的文件上传" class="headerlink" title="一、传统方式的文件上传"></a>一、传统方式的文件上传</h3><ol>
-<li>在<code>pom.xml</code>中引入<code>commons-fileupload</code>和<code>commons-io</code>jar包：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>文件上传的<code>index.jsp</code>页面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!-- 传统方式的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload1"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure></li>
-<li>文件上传的<code>UserController</code>控制器类：</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 传统方式的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload1"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload1</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用fileupload组件完成文件上传</span></span><br><span class="line">        <span class="comment">// 上传的位置</span></span><br><span class="line">        String path = request.getSession().getServletContext().getRealPath(<span class="string">"/uploads/"</span>);</span><br><span class="line">        <span class="comment">// 判断该路径表示的文件夹是否存在</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(path);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            <span class="comment">// 创建该文件夹</span></span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析request对象，获取上传文件项</span></span><br><span class="line">        DiskFileItemFactory factory = <span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">        ServletFileUpload upload = <span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">        <span class="comment">// 解析request</span></span><br><span class="line">        List&lt;FileItem&gt; items = upload.parseRequest(request);</span><br><span class="line">        <span class="comment">// 遍历items文件项</span></span><br><span class="line">        <span class="keyword">for</span> (FileItem item : items) &#123;</span><br><span class="line">            <span class="comment">// 进行判断，当前item对象是否是上传文件项</span></span><br><span class="line">            <span class="keyword">if</span> (item.isFormField()) &#123; <span class="comment">// 说明是一个普通的表单项</span></span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// 说明是一个上传文件项</span></span><br><span class="line">                <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">                String filename = item.getName();</span><br><span class="line">                <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">                String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">                filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line">                <span class="comment">// 完成文件上传</span></span><br><span class="line">                item.write(<span class="keyword">new</span> File(path, filename));</span><br><span class="line">                <span class="comment">// 删除临时文件</span></span><br><span class="line">                item.delete();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==弊端==：需要自己解析<code>request对象</code>，获取上传文件项 —— 步骤繁琐</p>
-<h3 id="二、SpringMVC的文件上传"><a href="#二、SpringMVC的文件上传" class="headerlink" title="二、SpringMVC的文件上传"></a>二、SpringMVC的文件上传</h3><p><code>MultipartFile</code>：表示上传的文件对象，其名称必须和表单里<code>name=&quot;upload&quot;</code>名称相同<br><code>CommonsMultipartResolver</code>：文件解析器，只要配置了文件解析器，方法中就不需要自己解析文件了</p>
-<p>文件上传的<code>index.jsp</code>页面：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!-- SpringMVC的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload2"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>文件上传的<code>UserController</code>控制器类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload2</span><span class="params">(HttpServletRequest request, MultipartFile upload)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SpringMVC文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用fileupload组件完成文件上传</span></span><br><span class="line">        <span class="comment">// 上传的位置</span></span><br><span class="line">        String path = request.getSession().getServletContext().getRealPath(<span class="string">"/uploads/"</span>);</span><br><span class="line">        <span class="comment">// 判断该路径表示的文件夹是否存在</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(path);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            <span class="comment">// 创建该文件夹</span></span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">        String filename = upload.getOriginalFilename();</span><br><span class="line">        <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">        String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">        filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line">        <span class="comment">// 完成文件上传</span></span><br><span class="line">        upload.transferTo(<span class="keyword">new</span> File(path, filename));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==注意==：<br>（1）可以使用<code>UUID</code>把文件的名称设置成唯一值<br>（2）配置文件解析器对象<code>CommonsMultipartResolver</code>时，<code>id=&quot;multipartResolver&quot;</code> 不能改变，是固定写法。</p>
-<h3 id="三、跨服务器的文件上传"><a href="#三、跨服务器的文件上传" class="headerlink" title="三、跨服务器的文件上传"></a>三、跨服务器的文件上传</h3><p><code>Client</code>：客户端对象<br><code>Client.resource()</code>：用于和图片服务器进行连接<br><code>webResource.put()</code>：用于上传文件</p>
-<p>文件上传的<code>index.jsp</code>页面：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--  跨服务器的文件上传 --&gt;</span><br><span class="line">   &lt;form action=<span class="string">"user/fileUpload3"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">       选择文件：&lt;input type=<span class="string">"file"</span> name=<span class="string">"upload"</span>/&gt;&lt;br/&gt;</span><br><span class="line">       &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>文件上传的<code>UserController</code>控制器类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 跨服务器的文件上传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/fileUpload3"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload3</span><span class="params">(MultipartFile upload)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"跨服务器文件上传。。。"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义上传文件服务器的路径：最后要有一个/</span></span><br><span class="line">        String path = <span class="string">"http://localhost:9090/uploads/"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取上传文件的名称</span></span><br><span class="line">        String filename = upload.getOriginalFilename();</span><br><span class="line">        <span class="comment">// 把文件的名称设置成唯一值，uuid</span></span><br><span class="line">        String uuid = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">        filename = uuid + <span class="string">"_"</span> + filename;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 完成文件上传，跨服务器上传</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建客户端的对象</span></span><br><span class="line">        Client client = Client.create();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 和图片服务器进行连接</span></span><br><span class="line">        WebResource webResource = client.resource(path + filename);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上传文件</span></span><br><span class="line">        webResource.put(upload.getBytes());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==注意==：<br>（1）这里创建了两个local本地Tomcat服务器，一个端口号为8080，另一个端口号为9090<br>（2）定义上传文件服务器的路径：最后要有一个<code>/</code>，否则路径不对</p>
-]]></content>
-      <categories>
-        <category>SpringMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringMVC（3）</title>
-    <url>/2020/ckbj44yw10017k4vfapvp9pvl/</url>
+    <url>/2020/ckbjbf79w0013mwvf57288q7k/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="SpringMVC（3）"><a href="#SpringMVC（3）" class="headerlink" title="SpringMVC（3）"></a>SpringMVC（3）</h1><h2 id="响应数据和结果视图"><a href="#响应数据和结果视图" class="headerlink" title="响应数据和结果视图"></a>响应数据和结果视图</h2><h3 id="一、返回值类型分类"><a href="#一、返回值类型分类" class="headerlink" title="一、返回值类型分类"></a>一、返回值类型分类</h3><h5 id="1-返回字符串："><a href="#1-返回字符串：" class="headerlink" title="1. 返回字符串："></a>1. 返回字符串：</h5><p>当方法生效，返回<code>&quot;success&quot;</code>，就会在<code>WEB-INF/pages</code>下找到对应的<code>success.jsp</code>，从而跳转到该页面</p>
@@ -938,8 +916,42 @@ import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><
       </tags>
   </entry>
   <entry>
+    <title>SpringMVC（5）</title>
+    <url>/2020/ckbjbf79x0017mwvf60908nef/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="SpringMVC（5）"><a href="#SpringMVC（5）" class="headerlink" title="SpringMVC（5）"></a>SpringMVC（5）</h1><h2 id="SpringMVC的异常处理"><a href="#SpringMVC的异常处理" class="headerlink" title="SpringMVC的异常处理"></a>SpringMVC的异常处理</h2><h3 id="异常处理流程："><a href="#异常处理流程：" class="headerlink" title="异常处理流程："></a>异常处理流程：</h3><pre><code>dao ==&gt; service ==&gt; web ==&gt; 前端控制器 ==&gt; 页面
+如果不处理异常，那么直接会将异常抛到页面上</code></pre><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在前端控制器中配置异常处理器，进行异常处理</p>
+<p>（1）编写自定义异常类，做提示信息的<br>（2）编写异常处理器<br>（3）配置异常处理器，用于跳转异常页面</p>
+<h3 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h3><p><code>index.jsp</code>首页：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;a href="user/testException"&gt;testException&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p><code>SysException.java</code>自定义的异常类：系统异常</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储提示信息</span></span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SysException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>SysExceptionResolver.java</code>异常处理器类：需要实现<code>HandlerExceptionResolver</code>接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysExceptionResolver</span> <span class="keyword">implements</span> <span class="title">HandlerExceptionResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">resolveException</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取到异常对象</span></span><br><span class="line">        SysException e = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> SysException)&#123;</span><br><span class="line">            e = (SysException) ex;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            e = <span class="keyword">new</span> SysException(<span class="string">"系统正在维护"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建ModelAndView对象</span></span><br><span class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">        mv.setViewName(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>springmvc.xml</code>：配置异常处理器，用于跳转异常页面</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sysExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"com.Lemon.exception.SysExceptionResolver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>UserController</code>控制器类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/testException"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testException执行了..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模拟异常</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">10</span> / <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 打印异常信息</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="comment">// 抛出自定义异常信息</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SysException(<span class="string">"查询所有用户出现错误了..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>error.jsp</code>页面：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> isELIgnored=<span class="string">"false"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    $&#123;errorMsg&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>由于在异常处理器类<code>SysExceptionResolver</code>中创建<code>ModelAndView</code>对象：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">mv.setViewName(<span class="string">"error"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>当有异常时，SpringMVC会将异常捕获，并把异常存储到<code>ModelAndView</code>对象中（<code>mv.addObject(&quot;errorMsg&quot;, e.getMessage());</code>），同时设置了跳转的视图页面（<code>mv.setViewName(&quot;error&quot;);</code>）。</p>
+<p>因此出现异常，不会跳转到<code>success.jsp</code>页面，而是跳转到<code>error.jsp</code>页面。</p>
+]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringMVC（6）</title>
-    <url>/2020/ckbj44yw3001bk4vfh3qx56ja/</url>
+    <url>/2020/ckbjbf79y0019mwvf1e1m3ffi/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="SpringMVC（6）"><a href="#SpringMVC（6）" class="headerlink" title="SpringMVC（6）"></a>SpringMVC（6）</h1><h2 id="SpringMVC的拦截器"><a href="#SpringMVC的拦截器" class="headerlink" title="SpringMVC的拦截器"></a>SpringMVC的拦截器</h2><h4 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h4><p>==结合流程图和后台打印结果看==<br><img src="https://img-blog.csdnimg.cn/20200611204444926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="含有两个自定义拦截器的流程"><br>后台打印结果：</p>
@@ -984,7 +996,7 @@ return false：不放行，直接跳转页面</code></pre><p>（2）<code>postHa
   </entry>
   <entry>
     <title>SpringMVC（7）</title>
-    <url>/2020/ckbj44yw4001dk4vf280hhzzv/</url>
+    <url>/2020/ckbjbf7a0001dmwvf4pzc4bze/</url>
     <content><![CDATA[<a id="more"></a>
 
 <h1 id="SpringMVC（7）"><a href="#SpringMVC（7）" class="headerlink" title="SpringMVC（7）"></a>SpringMVC（7）</h1><h2 id="SSM整合"><a href="#SSM整合" class="headerlink" title="SSM整合"></a>SSM整合</h2><h4 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h4><p><img src="https://img-blog.csdnimg.cn/20200611205002553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -1104,7 +1116,7 @@ return false：不放行，直接跳转页面</code></pre><p>（2）<code>postHa
   </entry>
   <entry>
     <title>我的第一篇博客文章</title>
-    <url>/2020/ckbj44yw9001hk4vf5or30m33/</url>
+    <url>/2020/ckbjbf7a4001fmwvfcix05a7h/</url>
     <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><ol>
 <li>hexo s：开启博客</li>
 <li>hexo clean：清理</li>
@@ -1113,17 +1125,5 @@ return false：不放行，直接跳转页面</code></pre><p>（2）<code>postHa
 </ol>
 <hr>
 ]]></content>
-  </entry>
-  <entry>
-    <title>About Me</title>
-    <url>/2020/about/</url>
-    <content><![CDATA[<blockquote>
-<p>A Coder, live in Nanjing, China.</p>
-</blockquote>
-<p>姓名：吴沛达<br>现居：南京<br>GitHub: <a href="https://github.com/Lemon-362" target="_blank" rel="noopener">Peida Wu</a><br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=10292529048&site=qq&menu=yes" target="_blank" rel="noopener">10292529048</a><br>微信: 18362086897</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
   </entry>
 </search>
