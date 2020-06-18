@@ -2,8 +2,8 @@
 <search>
   <entry>
     <title>LeetCode热题Hot（1）</title>
-    <url>/2020/ckbk5m3rg0001uovfhrl4bk5p/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvfn0001u0vfaaip3f1g/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h2 id="LeetCode热题Hot-（1）"><a href="#LeetCode热题Hot-（1）" class="headerlink" title="LeetCode热题Hot （1）"></a>LeetCode热题Hot （1）</h2><h4 id="两数之和："><a href="#两数之和：" class="headerlink" title="两数之和："></a>两数之和：</h4><ul>
 <li>给定一个整数数组 arr 和一个目标值 target</li>
@@ -33,8 +33,8 @@
   </entry>
   <entry>
     <title>LeetCode热题Hot（2）</title>
-    <url>/2020/ckbk5m3rj0002uovfhmvj5moi/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvfw0003u0vf67605fgi/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h2 id="LeetCode热题Hot-（2）"><a href="#LeetCode热题Hot-（2）" class="headerlink" title="LeetCode热题Hot （2）"></a>LeetCode热题Hot （2）</h2><h4 id="两数以链表的形式相加："><a href="#两数以链表的形式相加：" class="headerlink" title="两数以链表的形式相加："></a>两数以链表的形式相加：</h4><ul>
 <li><p>给出两个 非空 的链表用来表示两个非负的整数。</p>
@@ -72,8 +72,8 @@
   </entry>
   <entry>
     <title>LeetCode热题Hot（3）</title>
-    <url>/2020/ckbk5m3rn0005uovf8uf6h6o8/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvg10007u0vfcw3f6wmf/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h2 id="LeetCode热题Hot-（3）"><a href="#LeetCode热题Hot-（3）" class="headerlink" title="LeetCode热题Hot （3）"></a>LeetCode热题Hot （3）</h2><h4 id="无重复字符的最长子串："><a href="#无重复字符的最长子串：" class="headerlink" title="无重复字符的最长子串："></a>无重复字符的最长子串：</h4><ul>
 <li>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度</li>
@@ -97,52 +97,9 @@
       </tags>
   </entry>
   <entry>
-    <title>MyBatis参数处理</title>
-    <url>/2020/ckbk5m3ro0006uovf1vva78wy/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p>一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称<br>    #{参数名}：取出参数</p>
-<p>二、多个参数：mybatis会做特殊处理<br>     当我们设置成：<br>    （1）方法：<code>public Employee getEmpByIdAndLastName(Integer id, String lastName);</code><br>    （2）sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    会报错异常：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Parameter <span class="string">'id'</span> not found.</span><br><span class="line">Available parameters are [<span class="number">0</span>, <span class="number">1</span>, param1, param2]</span><br></pre></td></tr></table></figure>
-
-<p>==解决办法一：==<br>        多个参数会被封装成一个map：<br>        （1）key：param1,…,paramN，或者参数的索引（从0开始）<br>        （2）value：传入的参数值<br>        #{param1}就是从mao中获取指定key的值<br>    sql语句：where id=#{param1} and last_name=#{param2}</p>
-<p>==解决办法二：推荐！！！==<br><strong>命名参数</strong>：明确指定封装参数时map的key名称 —— <code>@Param(&quot;id&quot;)</code><br>    方法：<code>getEmpByIdAndLastName(@Param(&quot;id&quot;) Integer id, @Param(&quot;lastName&quot;) String lastName);</code><br>    sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    多个参数会被封装成一个map：<br>            （1）key：使用@Param注解指定的值<br>            （2）value：传入的参数值<br>        #{指定的key}就是从mao中获取指定key的值</p>
-<p>POJO：<br>三、如果多个参数正好是业务逻辑的数据模型，我们就可以直接传入pojo<br>    <code>#{属性名}</code>：取出传入的pojo的属性值</p>
-<p>Map：<br>四、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==不经常使用时，我们可以一传入map==<br>    <code>#{key}</code>：取出map中对应的值</p>
-<p>TO：<br>五、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==经常要使用，推荐编写一个TO(Transfer Object）数据传输对象==</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Page&#123;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>六、<code>#{ }</code>和<code>${ }</code>：都可以获取map中的值或者pojo对象属性的值</p>
-<p>1.区别：<br>（1）<code>#{ }</code>：以预编译的形式，将参数设置到sql语句中 PreparedStatement ==&gt; 可以防止sql注入</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">select * from tbl_employee where id=#&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=? and last_name=?</span><br></pre></td></tr></table></figure>
-
-<p>（2）<code>${ }</code>：取出的值直接拼接在sql语句中 ⇒ 有sql注入安全问题</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">select * from tbl_employee where id=$&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=<span class="number">2</span> and last_name=?</span><br></pre></td></tr></table></figure>
-
-<p>==大多是情况下，取参数的值都使用 <code>#{ }</code>==</p>
-<pre><code>原生JDBC不支持占位符的地方我们就可以使用 ${} 进行取值
-例如：
-（1）表名不支持占位符，而现在可以使用 ${} 进行拼接
-分表（按照年份分表拆分）：select * from ${year}_salary where ...; =&gt; 2017_salary, 2016_salary...
-（2）order by后面的表达式不支持占位符，而现在可以使用 ${} 进行拼接
-排序：select * from tnl_employee order by ${f_name} ${order}; ==&gt; 表达式 + desc/aesc</code></pre><p>2.<code>#{ }</code>更丰富的用法 —— 规定参数的一些规则<br>    javaType、 jdbcType、 mode（存储过程）、 numericScale、<br>    resultMap、 typeHandler、 jdbcTypeName、 expression（未来准备支持的功能）；</p>
-<p>jdbcType通常需要在某种特定的条件下被设置：<br>    在数据为null时，有些数据库不能识别mybatis对null的默认处理（Oracle），此时会报错</p>
-<pre><code>JdbcType OTHER：无效的类型；因为mybatis对所有的null都映射的是原生Jdbc的OTHER类型，oracle不能正确处理;
-由于全局配置中：jdbcTypeForNull=OTHER；oracle不支持；两种办法
-    1、#{email,jdbcType=OTHER};
-    2、jdbcTypeForNull=NULL
-        &lt;setting name=&quot;jdbcTypeForNull&quot; value=&quot;NULL&quot;/&gt;</code></pre>]]></content>
-      <categories>
-        <category>MyBatis</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MyBatis总结（1）</title>
-    <url>/2020/ckbk5m3rq0007uovfd5tn58jq/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvg30008u0vf7d00dymf/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 
 <p>@<a href="MyBatis（1）">TOC</a></p>
@@ -196,9 +153,52 @@
       </tags>
   </entry>
   <entry>
+    <title>MyBatis参数处理</title>
+    <url>/2020/ckbkgzvg40009u0vf2vqx21nb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
+
+<p>一、单个参数：mybatis不会做特殊处理 —— 参数名可以定义任意名称<br>    #{参数名}：取出参数</p>
+<p>二、多个参数：mybatis会做特殊处理<br>     当我们设置成：<br>    （1）方法：<code>public Employee getEmpByIdAndLastName(Integer id, String lastName);</code><br>    （2）sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    会报错异常：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Parameter <span class="string">'id'</span> not found.</span><br><span class="line">Available parameters are [<span class="number">0</span>, <span class="number">1</span>, param1, param2]</span><br></pre></td></tr></table></figure>
+
+<p>==解决办法一：==<br>        多个参数会被封装成一个map：<br>        （1）key：param1,…,paramN，或者参数的索引（从0开始）<br>        （2）value：传入的参数值<br>        #{param1}就是从mao中获取指定key的值<br>    sql语句：where id=#{param1} and last_name=#{param2}</p>
+<p>==解决办法二：推荐！！！==<br><strong>命名参数</strong>：明确指定封装参数时map的key名称 —— <code>@Param(&quot;id&quot;)</code><br>    方法：<code>getEmpByIdAndLastName(@Param(&quot;id&quot;) Integer id, @Param(&quot;lastName&quot;) String lastName);</code><br>    sql语句：<code>where id=#{id} and last_name=#{lastName}</code><br>    多个参数会被封装成一个map：<br>            （1）key：使用@Param注解指定的值<br>            （2）value：传入的参数值<br>        #{指定的key}就是从mao中获取指定key的值</p>
+<p>POJO：<br>三、如果多个参数正好是业务逻辑的数据模型，我们就可以直接传入pojo<br>    <code>#{属性名}</code>：取出传入的pojo的属性值</p>
+<p>Map：<br>四、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==不经常使用时，我们可以一传入map==<br>    <code>#{key}</code>：取出map中对应的值</p>
+<p>TO：<br>五、如果多个参数不是业务逻辑的数据模型，没有对应的pojo<br>    ==经常要使用，推荐编写一个TO(Transfer Object）数据传输对象==</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Page&#123;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>六、<code>#{ }</code>和<code>${ }</code>：都可以获取map中的值或者pojo对象属性的值</p>
+<p>1.区别：<br>（1）<code>#{ }</code>：以预编译的形式，将参数设置到sql语句中 PreparedStatement ==&gt; 可以防止sql注入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">select * from tbl_employee where id=#&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=? and last_name=?</span><br></pre></td></tr></table></figure>
+
+<p>（2）<code>${ }</code>：取出的值直接拼接在sql语句中 ⇒ 有sql注入安全问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">select * from tbl_employee where id=$&#123;id&#125; and last_name=#&#123;lastName&#125;</span><br><span class="line">Preparing: select * from tbl_employee where id=<span class="number">2</span> and last_name=?</span><br></pre></td></tr></table></figure>
+
+<p>==大多是情况下，取参数的值都使用 <code>#{ }</code>==</p>
+<pre><code>原生JDBC不支持占位符的地方我们就可以使用 ${} 进行取值
+例如：
+（1）表名不支持占位符，而现在可以使用 ${} 进行拼接
+分表（按照年份分表拆分）：select * from ${year}_salary where ...; =&gt; 2017_salary, 2016_salary...
+（2）order by后面的表达式不支持占位符，而现在可以使用 ${} 进行拼接
+排序：select * from tnl_employee order by ${f_name} ${order}; ==&gt; 表达式 + desc/aesc</code></pre><p>2.<code>#{ }</code>更丰富的用法 —— 规定参数的一些规则<br>    javaType、 jdbcType、 mode（存储过程）、 numericScale、<br>    resultMap、 typeHandler、 jdbcTypeName、 expression（未来准备支持的功能）；</p>
+<p>jdbcType通常需要在某种特定的条件下被设置：<br>    在数据为null时，有些数据库不能识别mybatis对null的默认处理（Oracle），此时会报错</p>
+<pre><code>JdbcType OTHER：无效的类型；因为mybatis对所有的null都映射的是原生Jdbc的OTHER类型，oracle不能正确处理;
+由于全局配置中：jdbcTypeForNull=OTHER；oracle不支持；两种办法
+    1、#{email,jdbcType=OTHER};
+    2、jdbcTypeForNull=NULL
+        &lt;setting name=&quot;jdbcTypeForNull&quot; value=&quot;NULL&quot;/&gt;</code></pre>]]></content>
+      <categories>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MyBatis总结（2）</title>
-    <url>/2020/ckbk5m3rt000buovf7rwmaf11/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvg8000du0vf39a22zc5/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <p>@<a href="MyBatis（2）">TOC</a> </p>
 <h2 id="一、增删改查CRUD的映射文件配置"><a href="#一、增删改查CRUD的映射文件配置" class="headerlink" title="一、增删改查CRUD的映射文件配置"></a>一、增删改查CRUD的映射文件配置</h2><h3 id="1-增加Employee"><a href="#1-增加Employee" class="headerlink" title="1. 增加Employee"></a>1. 增加Employee</h3><p>EmployeeMapper接口</p>
@@ -268,8 +268,8 @@
   </entry>
   <entry>
     <title>MyBatis总结（3）</title>
-    <url>/2020/ckbk5m3ru000cuovf0syaa9kb/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvga000eu0vfbpnb6xv7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 
 <p>@<a href="MyBatis（3）">TOC</a></p>
@@ -367,9 +367,61 @@
       </tags>
   </entry>
   <entry>
+    <title>MyBatis（5）</title>
+    <url>/2020/ckbkgzvgd000ju0vf5cu1eu9p/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
+
+<p>@<a href="MyBatis（5）">TOC</a></p>
+<h2 id="一、一级缓存（本地缓存）"><a href="#一、一级缓存（本地缓存）" class="headerlink" title="一、一级缓存（本地缓存）"></a>一、一级缓存（本地缓存）</h2><p><strong>1. 与数据库同一次会话期间，查询到的数据会放在本地缓存中<br>2. 以后如果需要获取相同的数据，直接从缓存中拿，没必要再去查询数据库<br>3.  sqlSession级别的缓存，一直开启的 —— 实际上就是sqlSession级别的一个Map</strong></p>
+<pre><code>一级缓存失效情况（发送多个sql语句）：
+1. sqlSession不同
+2. sqlSession相同，查询条件不同（当前一级缓存中没有这个数据）
+3. sqlSession相同，两次查询之间执行了增删改操作（这次增删改操作可能对当前数据有影响）——因为设置了flushCache=&quot;true&quot;
+4. sqlSession相同，手动清除了一级缓存 openSession.clearCache();</code></pre><h2 id="二、二级缓存（全局缓存）"><a href="#二、二级缓存（全局缓存）" class="headerlink" title="二、二级缓存（全局缓存）"></a>二、二级缓存（全局缓存）</h2><p><strong>1. 基于NameSpace级别的缓存 —— 一个NameSpace就对应一个二级缓存<br>2. 工作机制：<br>     *  1）一个会话查询一条数据，这个数据就会被放在当前会话的一级缓存中<br>     *  2）如果会话关闭，一级缓存的数据会被保存到二级缓存中；新的会话查询信息，就可以参照二级缓存中的内容<br>     *  3）sqlSession：<br>     *      (1) EmployeeMapper ==&gt; Employee<br>     *      (2) DepartmentMapper ==&gt; Department<br>     *    不同的NameSpace查出的数据会放在对应的缓存（map）中</strong></p>
+<pre><code>使用步骤
+ *  1. 开启全局二级缓存配置：&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+ *  2. 在每个Mapper.xml中配置二级缓存
+ *  3. POJO（每个JavaBean对象）需要实现`Serializable `序列化接口</code></pre><p>具体代码：</p>
+<p>全局配置文件mybatis-config.xml</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"cacheEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">   &lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+<p><code>cache</code>标签：二级缓存<br><code>eviction</code>属性：缓存的回收策略<br><code>flushInterval</code>属性：缓存刷新间隔<br><code>readOnly</code>属性：是否只读</p>
+<pre><code>true：只读，所有从缓存中获取数据的操作都是只读操作，不会修改数据
+                   为了加快获取速度，直接将数据在缓存中的引用交给用户
+             —— 不安全，速度快
+false：非只读，获取的数据可能被修改，mybatis会利用序列化和反序列化克隆一份新的数据给用户
+             —— 安全，速度慢</code></pre><p><code>size</code>属性：缓存中存放多少个元素<br><code>type</code>属性：自定义缓存的全类名 —— 实现Cache接口即可（可以实现第三方缓存整合）</p>
+<p>EmployeeMapper.xml</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;cache eviction=<span class="string">"FIFO"</span> flushInterval=<span class="string">"60000"</span> readOnly=<span class="string">"false"</span> size=<span class="string">"1024"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>Employee.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意==<br>在MapperXml配置文件的<code>select</code>标签不能添加<code>useCache=&quot;true&quot; flushCache=&quot;true&quot;</code>设置，否则会刷新缓存</p>
+<p>==查出的数据会默认先放在一级缓存中，只有关闭会话后，一级缓存中的数据才会转移到二级缓存中==</p>
+<h2 id="三、和缓存相关的设置-属性："><a href="#三、和缓存相关的设置-属性：" class="headerlink" title="三、和缓存相关的设置/属性："></a>三、和缓存相关的设置/属性：</h2><pre><code>*  1. &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
+*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
+*  2. 每个select标签都有 useCache=&quot;true&quot; 设置
+*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
+*  3. 增删改标签： flushCache=&quot;true&quot;，！！！每次执行完都会清除缓存！！！
+*      当设置成true时，一级、二级缓存都会被清除
+*  4. 查询标签： flushCache=&quot;false&quot;
+*      当设置成true时，一级、二级缓存都会被清除
+*  5. openSession.clearCache()：只是清除当前session的一级缓存
+*  6. localCacheScope：本地缓存作用域（一级缓存）
+*      （1）session：当前会话的所有数据保存在会话缓存中
+*      （2）statement：可以禁用一级缓存</code></pre><h2 id="四、ehcache第三方缓存整合"><a href="#四、ehcache第三方缓存整合" class="headerlink" title="四、ehcache第三方缓存整合"></a>四、ehcache第三方缓存整合</h2><pre><code>步骤：
+1. 导入第三方缓存包
+2. 导入与第三方缓存整合的适配包
+3. xxMapper.xml中定义自定义缓存 &lt;cache type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;/&gt;</code></pre>]]></content>
+      <categories>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MyBatis总结（4）</title>
-    <url>/2020/ckbk5m3rw000huovf54qefbvr/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvge000ku0vf7xl4dys6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="MyBatis（4）"><a href="#MyBatis（4）" class="headerlink" title="MyBatis（4）"></a>MyBatis（4）</h1><h2 id="一、DynamicSQL-动态SQL"><a href="#一、DynamicSQL-动态SQL" class="headerlink" title="一、DynamicSQL 动态SQL"></a>一、DynamicSQL 动态SQL</h2><h3 id="1-if标签——用于判断"><a href="#1-if标签——用于判断" class="headerlink" title="1. if标签——用于判断"></a>1. <code>if</code>标签——用于判断</h3><p><code>test</code>属性：判断表达式OGNL</p>
 <p>要求：查询哪个字段（即传入了哪个字段），那么查询条件就带上这个字段的值</p>
@@ -443,8 +495,8 @@
   </entry>
   <entry>
     <title>Spring Boot常见报错总结</title>
-    <url>/2020/ckbk5m3ry000iuovfbkt2gz4e/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgg000pu0vfg3dnczml/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <p>@[TOC](Spring Boot常见报错)</p>
 <h1 id="Spring-Boot常见报错总结"><a href="#Spring-Boot常见报错总结" class="headerlink" title="Spring Boot常见报错总结"></a>Spring Boot常见报错总结</h1><h2 id="1-Valid没有效果"><a href="#1-Valid没有效果" class="headerlink" title="1. @Valid没有效果"></a>1. @Valid没有效果</h2><p>在配合使用@Valid和@Min注解时，发现没有起到效果。</p>
@@ -465,117 +517,9 @@ import javax.validation.constraints.Min;</code></pre><h2 id="2-findOne-报错"><
       </tags>
   </entry>
   <entry>
-    <title>MyBatis（5）</title>
-    <url>/2020/ckbk5m3s0000nuovf91q55uws/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p>@<a href="MyBatis（5）">TOC</a></p>
-<h2 id="一、一级缓存（本地缓存）"><a href="#一、一级缓存（本地缓存）" class="headerlink" title="一、一级缓存（本地缓存）"></a>一、一级缓存（本地缓存）</h2><p><strong>1. 与数据库同一次会话期间，查询到的数据会放在本地缓存中<br>2. 以后如果需要获取相同的数据，直接从缓存中拿，没必要再去查询数据库<br>3.  sqlSession级别的缓存，一直开启的 —— 实际上就是sqlSession级别的一个Map</strong></p>
-<pre><code>一级缓存失效情况（发送多个sql语句）：
-1. sqlSession不同
-2. sqlSession相同，查询条件不同（当前一级缓存中没有这个数据）
-3. sqlSession相同，两次查询之间执行了增删改操作（这次增删改操作可能对当前数据有影响）——因为设置了flushCache=&quot;true&quot;
-4. sqlSession相同，手动清除了一级缓存 openSession.clearCache();</code></pre><h2 id="二、二级缓存（全局缓存）"><a href="#二、二级缓存（全局缓存）" class="headerlink" title="二、二级缓存（全局缓存）"></a>二、二级缓存（全局缓存）</h2><p><strong>1. 基于NameSpace级别的缓存 —— 一个NameSpace就对应一个二级缓存<br>2. 工作机制：<br>     *  1）一个会话查询一条数据，这个数据就会被放在当前会话的一级缓存中<br>     *  2）如果会话关闭，一级缓存的数据会被保存到二级缓存中；新的会话查询信息，就可以参照二级缓存中的内容<br>     *  3）sqlSession：<br>     *      (1) EmployeeMapper ==&gt; Employee<br>     *      (2) DepartmentMapper ==&gt; Department<br>     *    不同的NameSpace查出的数据会放在对应的缓存（map）中</strong></p>
-<pre><code>使用步骤
- *  1. 开启全局二级缓存配置：&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
- *  2. 在每个Mapper.xml中配置二级缓存
- *  3. POJO（每个JavaBean对象）需要实现`Serializable `序列化接口</code></pre><p>具体代码：</p>
-<p>全局配置文件mybatis-config.xml</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"cacheEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">   &lt;/settings&gt;</span><br></pre></td></tr></table></figure>
-<p><code>cache</code>标签：二级缓存<br><code>eviction</code>属性：缓存的回收策略<br><code>flushInterval</code>属性：缓存刷新间隔<br><code>readOnly</code>属性：是否只读</p>
-<pre><code>true：只读，所有从缓存中获取数据的操作都是只读操作，不会修改数据
-                   为了加快获取速度，直接将数据在缓存中的引用交给用户
-             —— 不安全，速度快
-false：非只读，获取的数据可能被修改，mybatis会利用序列化和反序列化克隆一份新的数据给用户
-             —— 安全，速度慢</code></pre><p><code>size</code>属性：缓存中存放多少个元素<br><code>type</code>属性：自定义缓存的全类名 —— 实现Cache接口即可（可以实现第三方缓存整合）</p>
-<p>EmployeeMapper.xml</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;cache eviction=<span class="string">"FIFO"</span> flushInterval=<span class="string">"60000"</span> readOnly=<span class="string">"false"</span> size=<span class="string">"1024"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>Employee.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==注意==<br>在MapperXml配置文件的<code>select</code>标签不能添加<code>useCache=&quot;true&quot; flushCache=&quot;true&quot;</code>设置，否则会刷新缓存</p>
-<p>==查出的数据会默认先放在一级缓存中，只有关闭会话后，一级缓存中的数据才会转移到二级缓存中==</p>
-<h2 id="三、和缓存相关的设置-属性："><a href="#三、和缓存相关的设置-属性：" class="headerlink" title="三、和缓存相关的设置/属性："></a>三、和缓存相关的设置/属性：</h2><pre><code>*  1. &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
-*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
-*  2. 每个select标签都有 useCache=&quot;true&quot; 设置
-*      当设置成false时，二级缓存会被关闭，而一级缓存一直可用，不会被关闭
-*  3. 增删改标签： flushCache=&quot;true&quot;，！！！每次执行完都会清除缓存！！！
-*      当设置成true时，一级、二级缓存都会被清除
-*  4. 查询标签： flushCache=&quot;false&quot;
-*      当设置成true时，一级、二级缓存都会被清除
-*  5. openSession.clearCache()：只是清除当前session的一级缓存
-*  6. localCacheScope：本地缓存作用域（一级缓存）
-*      （1）session：当前会话的所有数据保存在会话缓存中
-*      （2）statement：可以禁用一级缓存</code></pre><h2 id="四、ehcache第三方缓存整合"><a href="#四、ehcache第三方缓存整合" class="headerlink" title="四、ehcache第三方缓存整合"></a>四、ehcache第三方缓存整合</h2><pre><code>步骤：
-1. 导入第三方缓存包
-2. 导入与第三方缓存整合的适配包
-3. xxMapper.xml中定义自定义缓存 &lt;cache type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;/&gt;</code></pre>]]></content>
-      <categories>
-        <category>MyBatis</category>
-      </categories>
-      <tags>
-        <tag>mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot（2）—— Web开发（SpringMVC部分）</title>
-    <url>/2020/ckbk5m3s1000ouovf5ocj4uyg/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="Web开发（SpringMVC部分）"><a href="#Web开发（SpringMVC部分）" class="headerlink" title="Web开发（SpringMVC部分）"></a>Web开发（SpringMVC部分）</h1><hr>
-<h2 id="一、SpringBoot对静态资源的映射规则（存放位置）"><a href="#一、SpringBoot对静态资源的映射规则（存放位置）" class="headerlink" title="一、SpringBoot对静态资源的映射规则（存放位置）"></a>一、SpringBoot对静态资源的映射规则（存放位置）</h2><h4 id="1-werbjars-：静态资源"><a href="#1-werbjars-：静态资源" class="headerlink" title="1. /werbjars/**：静态资源"></a>1. <code>/werbjars/**</code>：静态资源</h4><p>由于引入了<code>jquery-webjar</code>，因此所有的<code>/werbjars/**</code>的静态资源都去<code>classpath:/META-INF/resources/webjars/</code>下找。</p>
-<h4 id="2-：当前项目的静态资源"><a href="#2-：当前项目的静态资源" class="headerlink" title="2. /**：当前项目的静态资源"></a>2. <code>/**</code>：当前项目的静态资源</h4><p>都去==静态资源文件夹==下找</p>
-<pre><code>(1) classpath:/META-INF/resources/
-(2) classpath:/resources/
-(3) classpath:/static/
-(4) classpath:/public/
-classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index-html：欢迎页"><a href="#3-index-html：欢迎页" class="headerlink" title="3. index.html：欢迎页"></a>3. <code>index.html</code>：欢迎页</h4><p>去所有的静态资源文件夹下找<code>index.html</code></p>
-<h4 id="4-favicon-ico：图标"><a href="#4-favicon-ico：图标" class="headerlink" title="4. **/favicon.ico：图标"></a>4. <code>**/favicon.ico</code>：图标</h4><p>去静态资源文件下找</p>
-<hr>
-<h2 id="二、模板引擎Thymeleaf"><a href="#二、模板引擎Thymeleaf" class="headerlink" title="二、模板引擎Thymeleaf"></a>二、模板引擎Thymeleaf</h2><h4 id="1-引入thymeleaf："><a href="#1-引入thymeleaf：" class="headerlink" title="1. 引入thymeleaf："></a>1. 引入thymeleaf：</h4><p>因为SpringBoot默认不支持<code>jsp</code>，所以需要使用模板引擎来传递数据：模板里使用占位符，数据model里存储占位符对应的值，通过模板引擎来获取数据</p>
-<p><code>pom.xml</code>：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--   更改thymeleaf的版本     --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.11.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-thymeleaf的使用："><a href="#2-thymeleaf的使用：" class="headerlink" title="2. thymeleaf的使用："></a>2. thymeleaf的使用：</h4><p>（1）导入thymeleaf的名称空间：<code>&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</code><br>（2）将html页面放在<code>classpath:/templates/</code>下，SpringBoot就可以自动渲染</p>
-<h4 id="3-thymeleaf的语法："><a href="#3-thymeleaf的语法：" class="headerlink" title="3. thymeleaf的语法："></a>3. thymeleaf的语法：</h4><ul>
-<li>可以使用类似<code>th:text</code>,<code>th:each</code>等标签，来替换掉原生属性的值</li>
-<li>可以获取map中==表达式==形式的数据</li>
-<li>使用<code>${ }</code>来获取在Controller中存入map的数据</li>
-<li><strong>==项目丢失样式时，先确保html页面里都用<code>th:href</code>来替换原生属性了==</strong></li>
-</ul>
-<p>（1）<code>th:text=&quot;${hello}&quot;</code>：将<code>div</code>标签体里的默认文本内容替换为map中指定的值（对于表达式中<code>&lt;h1&gt;</code>类似的，是其本身的含义）<br>（2）<code>th:uext=&quot;${hello1}&quot;</code>：对于表达式中<code>&lt;h1&gt;</code>类似的，是转义字符的含义<br>（3）<code>th:each=&quot;user:${users}&quot;</code>：每次遍历都会生成当前的标签<code>h4</code><br>    当<code>th:each=&quot;user:${users}&quot;</code>放在<code>span</code>标签里时，只会生成一个当前的标签<code>h4</code><br>    （4）标签体内的表达式<br>    -     <code>[[...]]</code> == <code>th:text</code><br>    - <code>[(...)]</code> == <code>th:utext</code> </p>
-<p><strong>例如：</strong><br><code>/resources/templates/success.html</code>页面：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div01"</span> <span class="attr">class</span>=<span class="string">"myDiv"</span> <span class="attr">th:id</span>=<span class="string">"$&#123;hello&#125;"</span> <span class="attr">th:class</span>=<span class="string">"$&#123;hello&#125;"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello&#125;"</span>&gt;</span>这是显示欢迎信息<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello1&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:utext</span>=<span class="string">"$&#123;hello1&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">th:text</span>=<span class="string">"$&#123;user&#125;"</span> <span class="attr">th:each</span>=<span class="string">"user:$&#123;users&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:each</span>=<span class="string">"user:$&#123;users&#125;"</span>&gt;</span> [[$&#123;user&#125;]] <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>/controller/HelloController</code>类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/success"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">(Map&lt;String, Object&gt; map)</span></span>&#123;</span><br><span class="line">        map.put(<span class="string">"hello"</span>, <span class="string">"你好"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//（2）表达式</span></span><br><span class="line">        map.put(<span class="string">"hello1"</span>, <span class="string">"&lt;h1&gt;你们好&lt;/h1&gt;"</span>);</span><br><span class="line">        map.put(<span class="string">"users"</span>, Arrays.asList(<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果：<br>如果不启动项目，直接打开<code>success.html</code>，会默认显示前端的信息<code>这是显示欢迎信息</code><br>如果启动项目，则会用后端的数据来覆盖默认信息，显示<code>你好</code><br><img src="https://img-blog.csdnimg.cn/20200616202936603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<hr>
-<h2 id="三、SpringMVC自动配置"><a href="#三、SpringMVC自动配置" class="headerlink" title="三、SpringMVC自动配置"></a>三、SpringMVC自动配置</h2><h4 id="1-SpringBoot对SpringMVC进行了自动配置："><a href="#1-SpringBoot对SpringMVC进行了自动配置：" class="headerlink" title="1. SpringBoot对SpringMVC进行了自动配置："></a>1. SpringBoot对SpringMVC进行了自动配置：</h4><ul>
-<li>源码参见<code>WebMvcAutoConfiguration</code>类</li>
-<li>如果我们想添加自己的组件，只需要使用<code>@Bean</code>，<code>@Component</code>将定制的组件放到容器中即可<h4 id="2-扩展SptingMVC"><a href="#2-扩展SptingMVC" class="headerlink" title="2. 扩展SptingMVC"></a>2. 扩展SptingMVC</h4></li>
-<li>编写一个配置类，使用<code>@Configuration</code>注解，实现<code>WebMvcConfigurer</code>即可</li>
-<li>效果：扩展了SpringMVC的功能，自动配置的和扩展的功能都能起作用</li>
-<li>例如：扩展视图映射功能，使得浏览器发送<code>/lemon</code>也能跳转到<code>succes.html</code>页面</li>
-</ul>
-<p><code>/config/MyMvcConfig.java</code>：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMvcConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 视图映射</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 浏览器发送 /lemon请求，跳转到success.html页面</span></span><br><span class="line">        registry.addViewController(<span class="string">"/lemon"</span>).setViewName(<span class="string">"success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-全面接管SptingMVC"><a href="#3-全面接管SptingMVC" class="headerlink" title="3. 全面接管SptingMVC"></a>3. 全面接管SptingMVC</h4><ul>
-<li>使用<code>@EnableWebMvc</code>注解标注在自己编写的配置类上，此时SpringBoot对SpringMVC的自动配置都失效了，所有都要自己配置（一般不推荐使用）</li>
-<li>在扩展SprngiMVC时，一定不能标注<code>@EnableWebMvc</code>！<h2 id="四、扩展-修改SpringBooot的默认配置"><a href="#四、扩展-修改SpringBooot的默认配置" class="headerlink" title="四、扩展/修改SpringBooot的默认配置"></a>四、扩展/修改SpringBooot的默认配置</h2></li>
-<li>方法一：可以使用<code>@Bean</code>，<code>@Component</code>注解来标注自己编写的配置类</li>
-<li>方法二：SpringBoot中有很多<code>xxxConfigurer</code>来帮助我们进行扩展</li>
-<li>方法三：SpringBoot中有很多<code>xxxCustomizer</code>来帮助我们进行定制</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Spring Boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot（1）</title>
-    <url>/2020/ckbk5m3s3000tuovf7qb63y0v/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgi000qu0vf0pj8bfcb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringBoot（1）"><a href="#SpringBoot（1）" class="headerlink" title="SpringBoot（1）"></a>SpringBoot（1）</h1><hr>
 <h2 id="一、入门程序"><a href="#一、入门程序" class="headerlink" title="一、入门程序"></a>一、入门程序</h2><h4 id="使用Spring-Initializer快速创建SpringBoot项目"><a href="#使用Spring-Initializer快速创建SpringBoot项目" class="headerlink" title="使用Spring Initializer快速创建SpringBoot项目"></a>使用Spring Initializer快速创建SpringBoot项目<img src="https://img-blog.csdnimg.cn/20200612213628866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></h4><p>==注意==：因为是Web开发，所以在这里要勾选<code>Web/Spring Web</code>，右上角<code>SpringBoot</code>选择不带<code>SNAPSHOT</code>的版本<br><img src="https://img-blog.csdnimg.cn/20200612213720442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>创建完后，主程序和一些文件夹都会默认创建好。</p>
@@ -705,8 +649,8 @@ classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index
   </entry>
   <entry>
     <title>SpringBoot（3）—— Web开发（登录界面和国际化）</title>
-    <url>/2020/ckbk5m3s4000vuovf8eogbzzl/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgk000uu0vf5ysidtgn/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="Web开发（登录界面和国际化）"><a href="#Web开发（登录界面和国际化）" class="headerlink" title="Web开发（登录界面和国际化）"></a>Web开发（登录界面和国际化）</h1><hr>
 <h2 id="一、默认访问首页"><a href="#一、默认访问首页" class="headerlink" title="一、默认访问首页"></a>一、默认访问首页</h2><ul>
@@ -765,8 +709,8 @@ classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index
   </entry>
   <entry>
     <title>SpringBoot（4）—— Web开发的CRUD</title>
-    <url>/2020/ckbk5m3s6000zuovfhwht4evk/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgm000wu0vfgz6shuf8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="Web开发（CRUD）"><a href="#Web开发（CRUD）" class="headerlink" title="Web开发（CRUD）"></a>Web开发（CRUD）</h1><hr>
 <h2 id="一、实验要求"><a href="#一、实验要求" class="headerlink" title="一、实验要求"></a>一、实验要求</h2><h6 id="1-使用Rest风格：URI-请求方式"><a href="#1-使用Rest风格：URI-请求方式" class="headerlink" title="1. 使用Rest风格：URI+请求方式"></a>1. 使用Rest风格：URI+请求方式</h6><table>
@@ -923,9 +867,97 @@ classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index
       </tags>
   </entry>
   <entry>
+    <title>SpringBoot（2）—— Web开发（SpringMVC部分）</title>
+    <url>/2020/ckbkgzvgp0010u0vfa186g3r2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
+
+<h1 id="Web开发（SpringMVC部分）"><a href="#Web开发（SpringMVC部分）" class="headerlink" title="Web开发（SpringMVC部分）"></a>Web开发（SpringMVC部分）</h1><hr>
+<h2 id="一、SpringBoot对静态资源的映射规则（存放位置）"><a href="#一、SpringBoot对静态资源的映射规则（存放位置）" class="headerlink" title="一、SpringBoot对静态资源的映射规则（存放位置）"></a>一、SpringBoot对静态资源的映射规则（存放位置）</h2><h4 id="1-werbjars-：静态资源"><a href="#1-werbjars-：静态资源" class="headerlink" title="1. /werbjars/**：静态资源"></a>1. <code>/werbjars/**</code>：静态资源</h4><p>由于引入了<code>jquery-webjar</code>，因此所有的<code>/werbjars/**</code>的静态资源都去<code>classpath:/META-INF/resources/webjars/</code>下找。</p>
+<h4 id="2-：当前项目的静态资源"><a href="#2-：当前项目的静态资源" class="headerlink" title="2. /**：当前项目的静态资源"></a>2. <code>/**</code>：当前项目的静态资源</h4><p>都去==静态资源文件夹==下找</p>
+<pre><code>(1) classpath:/META-INF/resources/
+(2) classpath:/resources/
+(3) classpath:/static/
+(4) classpath:/public/
+classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index-html：欢迎页"><a href="#3-index-html：欢迎页" class="headerlink" title="3. index.html：欢迎页"></a>3. <code>index.html</code>：欢迎页</h4><p>去所有的静态资源文件夹下找<code>index.html</code></p>
+<h4 id="4-favicon-ico：图标"><a href="#4-favicon-ico：图标" class="headerlink" title="4. **/favicon.ico：图标"></a>4. <code>**/favicon.ico</code>：图标</h4><p>去静态资源文件下找</p>
+<hr>
+<h2 id="二、模板引擎Thymeleaf"><a href="#二、模板引擎Thymeleaf" class="headerlink" title="二、模板引擎Thymeleaf"></a>二、模板引擎Thymeleaf</h2><h4 id="1-引入thymeleaf："><a href="#1-引入thymeleaf：" class="headerlink" title="1. 引入thymeleaf："></a>1. 引入thymeleaf：</h4><p>因为SpringBoot默认不支持<code>jsp</code>，所以需要使用模板引擎来传递数据：模板里使用占位符，数据model里存储占位符对应的值，通过模板引擎来获取数据</p>
+<p><code>pom.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--   更改thymeleaf的版本     --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.11.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">thymeleaf-layout-dialect.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-thymeleaf的使用："><a href="#2-thymeleaf的使用：" class="headerlink" title="2. thymeleaf的使用："></a>2. thymeleaf的使用：</h4><p>（1）导入thymeleaf的名称空间：<code>&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</code><br>（2）将html页面放在<code>classpath:/templates/</code>下，SpringBoot就可以自动渲染</p>
+<h4 id="3-thymeleaf的语法："><a href="#3-thymeleaf的语法：" class="headerlink" title="3. thymeleaf的语法："></a>3. thymeleaf的语法：</h4><ul>
+<li>可以使用类似<code>th:text</code>,<code>th:each</code>等标签，来替换掉原生属性的值</li>
+<li>可以获取map中==表达式==形式的数据</li>
+<li>使用<code>${ }</code>来获取在Controller中存入map的数据</li>
+<li><strong>==项目丢失样式时，先确保html页面里都用<code>th:href</code>来替换原生属性了==</strong></li>
+</ul>
+<p>（1）<code>th:text=&quot;${hello}&quot;</code>：将<code>div</code>标签体里的默认文本内容替换为map中指定的值（对于表达式中<code>&lt;h1&gt;</code>类似的，是其本身的含义）<br>（2）<code>th:uext=&quot;${hello1}&quot;</code>：对于表达式中<code>&lt;h1&gt;</code>类似的，是转义字符的含义<br>（3）<code>th:each=&quot;user:${users}&quot;</code>：每次遍历都会生成当前的标签<code>h4</code><br>    当<code>th:each=&quot;user:${users}&quot;</code>放在<code>span</code>标签里时，只会生成一个当前的标签<code>h4</code><br>    （4）标签体内的表达式<br>    -     <code>[[...]]</code> == <code>th:text</code><br>    - <code>[(...)]</code> == <code>th:utext</code> </p>
+<p><strong>例如：</strong><br><code>/resources/templates/success.html</code>页面：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div01"</span> <span class="attr">class</span>=<span class="string">"myDiv"</span> <span class="attr">th:id</span>=<span class="string">"$&#123;hello&#125;"</span> <span class="attr">th:class</span>=<span class="string">"$&#123;hello&#125;"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello&#125;"</span>&gt;</span>这是显示欢迎信息<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:text</span>=<span class="string">"$&#123;hello1&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:utext</span>=<span class="string">"$&#123;hello1&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">th:text</span>=<span class="string">"$&#123;user&#125;"</span> <span class="attr">th:each</span>=<span class="string">"user:$&#123;users&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:each</span>=<span class="string">"user:$&#123;users&#125;"</span>&gt;</span> [[$&#123;user&#125;]] <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>/controller/HelloController</code>类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/success"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">success</span><span class="params">(Map&lt;String, Object&gt; map)</span></span>&#123;</span><br><span class="line">        map.put(<span class="string">"hello"</span>, <span class="string">"你好"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//（2）表达式</span></span><br><span class="line">        map.put(<span class="string">"hello1"</span>, <span class="string">"&lt;h1&gt;你们好&lt;/h1&gt;"</span>);</span><br><span class="line">        map.put(<span class="string">"users"</span>, Arrays.asList(<span class="string">"A"</span>,<span class="string">"B"</span>,<span class="string">"C"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：<br>如果不启动项目，直接打开<code>success.html</code>，会默认显示前端的信息<code>这是显示欢迎信息</code><br>如果启动项目，则会用后端的数据来覆盖默认信息，显示<code>你好</code><br><img src="https://img-blog.csdnimg.cn/20200616202936603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="三、SpringMVC自动配置"><a href="#三、SpringMVC自动配置" class="headerlink" title="三、SpringMVC自动配置"></a>三、SpringMVC自动配置</h2><h4 id="1-SpringBoot对SpringMVC进行了自动配置："><a href="#1-SpringBoot对SpringMVC进行了自动配置：" class="headerlink" title="1. SpringBoot对SpringMVC进行了自动配置："></a>1. SpringBoot对SpringMVC进行了自动配置：</h4><ul>
+<li>源码参见<code>WebMvcAutoConfiguration</code>类</li>
+<li>如果我们想添加自己的组件，只需要使用<code>@Bean</code>，<code>@Component</code>将定制的组件放到容器中即可<h4 id="2-扩展SptingMVC"><a href="#2-扩展SptingMVC" class="headerlink" title="2. 扩展SptingMVC"></a>2. 扩展SptingMVC</h4></li>
+<li>编写一个配置类，使用<code>@Configuration</code>注解，实现<code>WebMvcConfigurer</code>即可</li>
+<li>效果：扩展了SpringMVC的功能，自动配置的和扩展的功能都能起作用</li>
+<li>例如：扩展视图映射功能，使得浏览器发送<code>/lemon</code>也能跳转到<code>succes.html</code>页面</li>
+</ul>
+<p><code>/config/MyMvcConfig.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMvcConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 视图映射</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 浏览器发送 /lemon请求，跳转到success.html页面</span></span><br><span class="line">        registry.addViewController(<span class="string">"/lemon"</span>).setViewName(<span class="string">"success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-全面接管SptingMVC"><a href="#3-全面接管SptingMVC" class="headerlink" title="3. 全面接管SptingMVC"></a>3. 全面接管SptingMVC</h4><ul>
+<li>使用<code>@EnableWebMvc</code>注解标注在自己编写的配置类上，此时SpringBoot对SpringMVC的自动配置都失效了，所有都要自己配置（一般不推荐使用）</li>
+<li>在扩展SprngiMVC时，一定不能标注<code>@EnableWebMvc</code>！<h2 id="四、扩展-修改SpringBooot的默认配置"><a href="#四、扩展-修改SpringBooot的默认配置" class="headerlink" title="四、扩展/修改SpringBooot的默认配置"></a>四、扩展/修改SpringBooot的默认配置</h2></li>
+<li>方法一：可以使用<code>@Bean</code>，<code>@Component</code>注解来标注自己编写的配置类</li>
+<li>方法二：SpringBoot中有很多<code>xxxConfigurer</code>来帮助我们进行扩展</li>
+<li>方法三：SpringBoot中有很多<code>xxxCustomizer</code>来帮助我们进行定制</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot（5）—— 错误处理机制</title>
+    <url>/2020/ckbkgzvgq0012u0vffsbo7eah/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
+
+<h1 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h1><h2 id="一-SpringBoot默认的错误处理机制"><a href="#一-SpringBoot默认的错误处理机制" class="headerlink" title="一. SpringBoot默认的错误处理机制"></a>一. SpringBoot默认的错误处理机制</h2><h6 id="1-浏览器：返回一个默认的404错误页面"><a href="#1-浏览器：返回一个默认的404错误页面" class="headerlink" title="1. 浏览器：返回一个默认的404错误页面"></a>1. 浏览器：返回一个默认的404错误页面</h6><p><img src="https://img-blog.csdnimg.cn/20200617202619880.png" alt="在这里插入图片描述"></p>
+<h6 id="2-其他客户端（Postman）：响应一个默认的json数据"><a href="#2-其他客户端（Postman）：响应一个默认的json数据" class="headerlink" title="2. 其他客户端（Postman）：响应一个默认的json数据"></a>2. 其他客户端（Postman）：响应一个默认的json数据</h6><p><img src="https://img-blog.csdnimg.cn/20200617202734628.png" alt="在这里插入图片描述"></p>
+<h6 id="3-原理：参见ErrorMvcAutoConfiguration类"><a href="#3-原理：参见ErrorMvcAutoConfiguration类" class="headerlink" title="3. 原理：参见ErrorMvcAutoConfiguration类"></a>3. 原理：参见<code>ErrorMvcAutoConfiguration</code>类</h6><h2 id="二-定制错误的页面"><a href="#二-定制错误的页面" class="headerlink" title="二. 定制错误的页面"></a>二. 定制错误的页面</h2><h6 id="1-SpringBoot对于错误页面的加载步骤："><a href="#1-SpringBoot对于错误页面的加载步骤：" class="headerlink" title="1. SpringBoot对于错误页面的加载步骤："></a>1. SpringBoot对于错误页面的加载步骤：</h6><p>（1）如果有模板引擎，请求是根据 <code>error/状态码</code>，只需将错误页面命名为 <code>错误状态码.html</code>，放在模板引擎文件夹<code>template/error</code>文件夹内即可<br>（2）也可以使用<code>4xx</code>和<code>5xx</code>作为错误页面的文件名，但是会优先寻找精确的<code>状态码.html（404.html）</code><br>（3）如果没有模板引擎，就去静态资源文件夹static下找<br>（4）如果都没有，那么来到SpringBoot默认的错误页面</p>
+<h2 id="三-定制错误的json数据"><a href="#三-定制错误的json数据" class="headerlink" title="三. 定制错误的json数据"></a>三. 定制错误的json数据</h2><h6 id="1-创建一个自定义异常类-exception-UserNotExistException，继承RuntimeException类"><a href="#1-创建一个自定义异常类-exception-UserNotExistException，继承RuntimeException类" class="headerlink" title="1. 创建一个自定义异常类/exception/UserNotExistException，继承RuntimeException类"></a>1. 创建一个自定义异常类<code>/exception/UserNotExistException</code>，继承<code>RuntimeException</code>类</h6><h6 id="2-在HelloController中定制：当用户名是aaa时，抛出异常-用户不存在"><a href="#2-在HelloController中定制：当用户名是aaa时，抛出异常-用户不存在" class="headerlink" title="2. 在HelloController中定制：当用户名是aaa时，抛出异常 用户不存在"></a>2. 在<code>HelloController</code>中定制：当用户名是<code>aaa</code>时，抛出异常 <code>用户不存在</code></h6><p><strong>具体代码：</strong><br><code>/exception/UserNotExistException</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserNotExistException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserNotExistException</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"用户不存在"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>HelloController</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(@RequestParam(<span class="string">"user"</span>)</span> String user)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (user.equals(<span class="string">"aaa"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UserNotExistException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello World"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意==：<br>（1）需要在主配置文件中配置<code>server.error.include-exception=true</code>和<code>server.error.include-message=always</code>才能生效<br>（2）需要将<code>MyMvcConfig</code>中注册的自定义拦截器注释掉，否则会提示<code>没有权限，请先登录</code></p>
+<p>效果：当访问 <code>http://localhost:8080/hello?user=aaa</code> 时，会抛出自定义异常</p>
+<hr>
+<h6 id="3-自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到-error，被BasicErrorController处理，进行自适应响应效果处理。"><a href="#3-自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到-error，被BasicErrorController处理，进行自适应响应效果处理。" class="headerlink" title="3. 自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到 /error，被BasicErrorController处理，进行自适应响应效果处理。"></a>3. 自定义异常处理器<code>MyExceptionHandler</code>，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到 <code>/error</code>，被<code>BasicErrorController</code>处理，进行自适应响应效果处理。</h6><h6 id="4-编写一个ErrorAttributes的类（extends-DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。"><a href="#4-编写一个ErrorAttributes的类（extends-DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。" class="headerlink" title="4. 编写一个ErrorAttributes的类（extends DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。"></a>4. 编写一个<code>ErrorAttributes</code>的类（<code>extends DefaultErrorAttributes</code>），重写<code>getErrorAttributes</code>方法，放到容器中，从而将定制的json数据（在<code>MyExceptionHandler</code>中存储在<code>map</code>中的json数据）携带出去。</h6><p><strong>==注意==：要想将异常处理器<code>MyExceptionHandler</code>的自定义信息也携带出去，首先在<code>MyExceptionHandler</code>中将存储自定义信息的<code>map</code>放到<code>request</code>域中，然后在<code>MyErrorAttributes</code>中获取异常处理器<code>MyExceptionHandler</code>携带的数据，并存到<code>errorAttributes</code>的<code>map</code>中，一起返回。</strong></p>
+<p><strong>具体代码：</strong><br><code>MyExceptionHandler</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(UserNotExistException<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">String</span> <span class="title">handleException</span>(<span class="title">Exception</span> <span class="title">e</span>, <span class="title">HttpServletRequest</span> <span class="title">request</span>)</span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 传入自己的错误状态码，否则页面显示200</span></span><br><span class="line">        request.setAttribute(<span class="string">"javax.servlet.error.status_code"</span>, <span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">"code"</span>, <span class="string">"user.notexist"</span>);</span><br><span class="line">        map.put(<span class="string">"message"</span>, <span class="string">"用户出错啦"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 要想将异常处理器的自定义信息也携带出去，首先将map放到request域中</span></span><br><span class="line">        request.setAttribute(<span class="string">"ext"</span>, map);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转发到 /error</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"forward:/error"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）使用<code>@ExceptionHandler(UserNotExistException.class)</code>来获取定制的错误信息<br>（2）使用<code>request.setAttribute(&quot;javax.servlet.error.status_code&quot;, 500);</code>，将自己的错误状态码传入，否则页面会显示200<br>（3）定义一个<code>map</code>来存储我们自己的错误信息，然后将map存储到request中<code>request.setAttribute(&quot;ext&quot;, map);</code><br>（4）这个自定义异常处理方法需要转发到<code>/error</code>：<code>&quot;forward:/error&quot;</code></p>
+<hr>
+<p><code>MyErrorAttributes</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyErrorAttributes</span> <span class="keyword">extends</span> <span class="title">DefaultErrorAttributes</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回的map就是页面和json能够获取的字段</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getErrorAttributes</span><span class="params">(WebRequest webRequest, ErrorAttributeOptions options)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Object&gt; errorAttributes = <span class="keyword">super</span>.getErrorAttributes(webRequest, options);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这里可以自定义输出的信息</span></span><br><span class="line">        errorAttributes.put(<span class="string">"company"</span>, <span class="string">"lemon"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取异常处理器的携带的数据</span></span><br><span class="line">        <span class="comment">// getAttribute(String name, int scope)：scope=0表示request域，scope=1表示session域</span></span><br><span class="line">        Map&lt;String, Object&gt; ext = (Map&lt;String, Object&gt;) webRequest.getAttribute(<span class="string">"ext"</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        errorAttributes.put(<span class="string">"ext"</span>, ext);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> errorAttributes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（1）为了将在<code>MyExceptionHandler</code>中存储在map中的错误信息数据能够携带出去，重写<code>getErrorAttributes</code>方法，该方法返回的<code>map</code>包含<code>页面</code>和<code>json</code>数据<br>（2）<code>Map&lt;String, Object&gt; ext = (Map&lt;String, Object&gt;) webRequest.getAttribute(&quot;ext&quot;, 0);</code>：将<code>MyExceptionHandler</code>中存储在<code>request</code>域中的<code>ext</code>错误信息取出，放到<code>errorAttributes</code>这个大的map中一起返回</p>
+<p>效果：<br>（1）页面输入<code>http://localhost:8080/hello?user=aaa</code><br><img src="https://img-blog.csdnimg.cn/20200617210144914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>（2）Postman输入（GET）<code>http://localhost:8080/hello?user=aaa</code><br><img src="https://img-blog.csdnimg.cn/20200617210212196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringBoot（6）—— 配置嵌入式Servlet容器</title>
-    <url>/2020/ckbk5m3s70012uovf36p9a6oh/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgs0016u0vfe8mu4by2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="配置嵌入式Servlet容器"><a href="#配置嵌入式Servlet容器" class="headerlink" title="配置嵌入式Servlet容器"></a>配置嵌入式Servlet容器</h1><hr>
 <h2 id="一、定制和修改Servlet容器的相关配置"><a href="#一、定制和修改Servlet容器的相关配置" class="headerlink" title="一、定制和修改Servlet容器的相关配置"></a>一、定制和修改Servlet容器的相关配置</h2><h6 id="1-修改和server相关的配置：直接在主配置文件中设置"><a href="#1-修改和server相关的配置：直接在主配置文件中设置" class="headerlink" title="1. 修改和server相关的配置：直接在主配置文件中设置"></a>1. 修改和server相关的配置：直接在主配置文件中设置</h6><p><code>server.xxx</code>：通用的Servlet容器设置<br><code>server.tomcat.xxx</code>：Tomcat的设置</p>
@@ -967,41 +999,9 @@ classpath表示src/main/java或者src/main/resources</code></pre><h4 id="3-index
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot（5）—— 错误处理机制</title>
-    <url>/2020/ckbk5m3s90016uovfbqrgd6sz/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h1><h2 id="一-SpringBoot默认的错误处理机制"><a href="#一-SpringBoot默认的错误处理机制" class="headerlink" title="一. SpringBoot默认的错误处理机制"></a>一. SpringBoot默认的错误处理机制</h2><h6 id="1-浏览器：返回一个默认的404错误页面"><a href="#1-浏览器：返回一个默认的404错误页面" class="headerlink" title="1. 浏览器：返回一个默认的404错误页面"></a>1. 浏览器：返回一个默认的404错误页面</h6><p><img src="https://img-blog.csdnimg.cn/20200617202619880.png" alt="在这里插入图片描述"></p>
-<h6 id="2-其他客户端（Postman）：响应一个默认的json数据"><a href="#2-其他客户端（Postman）：响应一个默认的json数据" class="headerlink" title="2. 其他客户端（Postman）：响应一个默认的json数据"></a>2. 其他客户端（Postman）：响应一个默认的json数据</h6><p><img src="https://img-blog.csdnimg.cn/20200617202734628.png" alt="在这里插入图片描述"></p>
-<h6 id="3-原理：参见ErrorMvcAutoConfiguration类"><a href="#3-原理：参见ErrorMvcAutoConfiguration类" class="headerlink" title="3. 原理：参见ErrorMvcAutoConfiguration类"></a>3. 原理：参见<code>ErrorMvcAutoConfiguration</code>类</h6><h2 id="二-定制错误的页面"><a href="#二-定制错误的页面" class="headerlink" title="二. 定制错误的页面"></a>二. 定制错误的页面</h2><h6 id="1-SpringBoot对于错误页面的加载步骤："><a href="#1-SpringBoot对于错误页面的加载步骤：" class="headerlink" title="1. SpringBoot对于错误页面的加载步骤："></a>1. SpringBoot对于错误页面的加载步骤：</h6><p>（1）如果有模板引擎，请求是根据 <code>error/状态码</code>，只需将错误页面命名为 <code>错误状态码.html</code>，放在模板引擎文件夹<code>template/error</code>文件夹内即可<br>（2）也可以使用<code>4xx</code>和<code>5xx</code>作为错误页面的文件名，但是会优先寻找精确的<code>状态码.html（404.html）</code><br>（3）如果没有模板引擎，就去静态资源文件夹static下找<br>（4）如果都没有，那么来到SpringBoot默认的错误页面</p>
-<h2 id="三-定制错误的json数据"><a href="#三-定制错误的json数据" class="headerlink" title="三. 定制错误的json数据"></a>三. 定制错误的json数据</h2><h6 id="1-创建一个自定义异常类-exception-UserNotExistException，继承RuntimeException类"><a href="#1-创建一个自定义异常类-exception-UserNotExistException，继承RuntimeException类" class="headerlink" title="1. 创建一个自定义异常类/exception/UserNotExistException，继承RuntimeException类"></a>1. 创建一个自定义异常类<code>/exception/UserNotExistException</code>，继承<code>RuntimeException</code>类</h6><h6 id="2-在HelloController中定制：当用户名是aaa时，抛出异常-用户不存在"><a href="#2-在HelloController中定制：当用户名是aaa时，抛出异常-用户不存在" class="headerlink" title="2. 在HelloController中定制：当用户名是aaa时，抛出异常 用户不存在"></a>2. 在<code>HelloController</code>中定制：当用户名是<code>aaa</code>时，抛出异常 <code>用户不存在</code></h6><p><strong>具体代码：</strong><br><code>/exception/UserNotExistException</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserNotExistException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserNotExistException</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="string">"用户不存在"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>HelloController</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(@RequestParam(<span class="string">"user"</span>)</span> String user)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (user.equals(<span class="string">"aaa"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UserNotExistException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello World"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>==注意==：<br>（1）需要在主配置文件中配置<code>server.error.include-exception=true</code>和<code>server.error.include-message=always</code>才能生效<br>（2）需要将<code>MyMvcConfig</code>中注册的自定义拦截器注释掉，否则会提示<code>没有权限，请先登录</code></p>
-<p>效果：当访问 <code>http://localhost:8080/hello?user=aaa</code> 时，会抛出自定义异常</p>
-<hr>
-<h6 id="3-自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到-error，被BasicErrorController处理，进行自适应响应效果处理。"><a href="#3-自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到-error，被BasicErrorController处理，进行自适应响应效果处理。" class="headerlink" title="3. 自定义异常处理器MyExceptionHandler，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到 /error，被BasicErrorController处理，进行自适应响应效果处理。"></a>3. 自定义异常处理器<code>MyExceptionHandler</code>，此时，自定义的json数据没有自适应效果，浏览器和客户端都返回json数据。需要转发到 <code>/error</code>，被<code>BasicErrorController</code>处理，进行自适应响应效果处理。</h6><h6 id="4-编写一个ErrorAttributes的类（extends-DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。"><a href="#4-编写一个ErrorAttributes的类（extends-DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。" class="headerlink" title="4. 编写一个ErrorAttributes的类（extends DefaultErrorAttributes），重写getErrorAttributes方法，放到容器中，从而将定制的json数据（在MyExceptionHandler中存储在map中的json数据）携带出去。"></a>4. 编写一个<code>ErrorAttributes</code>的类（<code>extends DefaultErrorAttributes</code>），重写<code>getErrorAttributes</code>方法，放到容器中，从而将定制的json数据（在<code>MyExceptionHandler</code>中存储在<code>map</code>中的json数据）携带出去。</h6><p><strong>==注意==：要想将异常处理器<code>MyExceptionHandler</code>的自定义信息也携带出去，首先在<code>MyExceptionHandler</code>中将存储自定义信息的<code>map</code>放到<code>request</code>域中，然后在<code>MyErrorAttributes</code>中获取异常处理器<code>MyExceptionHandler</code>携带的数据，并存到<code>errorAttributes</code>的<code>map</code>中，一起返回。</strong></p>
-<p><strong>具体代码：</strong><br><code>MyExceptionHandler</code>：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(UserNotExistException<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">String</span> <span class="title">handleException</span>(<span class="title">Exception</span> <span class="title">e</span>, <span class="title">HttpServletRequest</span> <span class="title">request</span>)</span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 传入自己的错误状态码，否则页面显示200</span></span><br><span class="line">        request.setAttribute(<span class="string">"javax.servlet.error.status_code"</span>, <span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">"code"</span>, <span class="string">"user.notexist"</span>);</span><br><span class="line">        map.put(<span class="string">"message"</span>, <span class="string">"用户出错啦"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 要想将异常处理器的自定义信息也携带出去，首先将map放到request域中</span></span><br><span class="line">        request.setAttribute(<span class="string">"ext"</span>, map);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转发到 /error</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"forward:/error"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）使用<code>@ExceptionHandler(UserNotExistException.class)</code>来获取定制的错误信息<br>（2）使用<code>request.setAttribute(&quot;javax.servlet.error.status_code&quot;, 500);</code>，将自己的错误状态码传入，否则页面会显示200<br>（3）定义一个<code>map</code>来存储我们自己的错误信息，然后将map存储到request中<code>request.setAttribute(&quot;ext&quot;, map);</code><br>（4）这个自定义异常处理方法需要转发到<code>/error</code>：<code>&quot;forward:/error&quot;</code></p>
-<hr>
-<p><code>MyErrorAttributes</code>：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyErrorAttributes</span> <span class="keyword">extends</span> <span class="title">DefaultErrorAttributes</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回的map就是页面和json能够获取的字段</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getErrorAttributes</span><span class="params">(WebRequest webRequest, ErrorAttributeOptions options)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Object&gt; errorAttributes = <span class="keyword">super</span>.getErrorAttributes(webRequest, options);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这里可以自定义输出的信息</span></span><br><span class="line">        errorAttributes.put(<span class="string">"company"</span>, <span class="string">"lemon"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取异常处理器的携带的数据</span></span><br><span class="line">        <span class="comment">// getAttribute(String name, int scope)：scope=0表示request域，scope=1表示session域</span></span><br><span class="line">        Map&lt;String, Object&gt; ext = (Map&lt;String, Object&gt;) webRequest.getAttribute(<span class="string">"ext"</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        errorAttributes.put(<span class="string">"ext"</span>, ext);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> errorAttributes;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）为了将在<code>MyExceptionHandler</code>中存储在map中的错误信息数据能够携带出去，重写<code>getErrorAttributes</code>方法，该方法返回的<code>map</code>包含<code>页面</code>和<code>json</code>数据<br>（2）<code>Map&lt;String, Object&gt; ext = (Map&lt;String, Object&gt;) webRequest.getAttribute(&quot;ext&quot;, 0);</code>：将<code>MyExceptionHandler</code>中存储在<code>request</code>域中的<code>ext</code>错误信息取出，放到<code>errorAttributes</code>这个大的map中一起返回</p>
-<p>效果：<br>（1）页面输入<code>http://localhost:8080/hello?user=aaa</code><br><img src="https://img-blog.csdnimg.cn/20200617210144914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>（2）Postman输入（GET）<code>http://localhost:8080/hello?user=aaa</code><br><img src="https://img-blog.csdnimg.cn/20200617210212196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>Spring Boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot（7）—— 使用外置的Servlet容器</title>
-    <url>/2020/ckbk5m3sa0018uovf3rnhf456/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgt0018u0vfdkq0e73s/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="使用外置的Servlet容器"><a href="#使用外置的Servlet容器" class="headerlink" title="使用外置的Servlet容器"></a>使用外置的Servlet容器</h1><hr>
 <h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><h5 id="1-创建一个war项目"><a href="#1-创建一个war项目" class="headerlink" title="1. 创建一个war项目"></a>1. 创建一个war项目</h5><h5 id="2-将嵌入式的Tomcat指定为provided"><a href="#2-将嵌入式的Tomcat指定为provided" class="headerlink" title="2. 将嵌入式的Tomcat指定为provided"></a>2. 将嵌入式的Tomcat指定为provided</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1029,8 +1029,8 @@ Project Structure - Modules - web - Deployment Descriptors：点+号生成web.xm
   </entry>
   <entry>
     <title>SpringMVC（1）</title>
-    <url>/2020/ckbk5m3sb001cuovf556hejy0/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvgw001cu0vf0r0189hm/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（1）"><a href="#SpringMVC（1）" class="headerlink" title="SpringMVC（1）"></a>SpringMVC（1）</h1><h3 id="一、三层架构"><a href="#一、三层架构" class="headerlink" title="一、三层架构"></a>一、三层架构</h3><pre><code>表现层：Web层，用于和客户端进行数据交互，采用MVC设计模型，Controller（SpringMVC）
 业务层：处理业务逻辑，Service（Spring）
@@ -1162,8 +1162,8 @@ Project Structure - Modules - web - Deployment Descriptors：点+号生成web.xm
   </entry>
   <entry>
     <title>SpringMVC（2）</title>
-    <url>/2020/ckbk5m3sc001euovf9qta0zac/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvh0001eu0vfe9h274n8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（2）"><a href="#SpringMVC（2）" class="headerlink" title="SpringMVC（2）"></a>SpringMVC（2）</h1><h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><h3 id="一、-RequestMapping"><a href="#一、-RequestMapping" class="headerlink" title="一、@RequestMapping"></a>一、<code>@RequestMapping</code></h3><ol>
 <li><p>作用：建立请求URL和处理方法之间的对应关系</p>
@@ -1309,8 +1309,8 @@ Project Structure - Modules - web - Deployment Descriptors：点+号生成web.xm
   </entry>
   <entry>
     <title>SpringMVC（3）</title>
-    <url>/2020/ckbk5m3sh001iuovf2y2y4u3b/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvh4001iu0vfhoav73ym/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（3）"><a href="#SpringMVC（3）" class="headerlink" title="SpringMVC（3）"></a>SpringMVC（3）</h1><h2 id="响应数据和结果视图"><a href="#响应数据和结果视图" class="headerlink" title="响应数据和结果视图"></a>响应数据和结果视图</h2><h3 id="一、返回值类型分类"><a href="#一、返回值类型分类" class="headerlink" title="一、返回值类型分类"></a>一、返回值类型分类</h3><h5 id="1-返回字符串："><a href="#1-返回字符串：" class="headerlink" title="1. 返回字符串："></a>1. 返回字符串：</h5><p>当方法生效，返回<code>&quot;success&quot;</code>，就会在<code>WEB-INF/pages</code>下找到对应的<code>success.jsp</code>，从而跳转到该页面</p>
 <pre><code>可以将从数据库查询到的对象存储到Request域对象中，
@@ -1380,43 +1380,9 @@ Project Structure - Modules - web - Deployment Descriptors：点+号生成web.xm
       </tags>
   </entry>
   <entry>
-    <title>SpringMVC（5）</title>
-    <url>/2020/ckbk5m3sj001kuovf89z64fb0/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="SpringMVC（5）"><a href="#SpringMVC（5）" class="headerlink" title="SpringMVC（5）"></a>SpringMVC（5）</h1><h2 id="SpringMVC的异常处理"><a href="#SpringMVC的异常处理" class="headerlink" title="SpringMVC的异常处理"></a>SpringMVC的异常处理</h2><h3 id="异常处理流程："><a href="#异常处理流程：" class="headerlink" title="异常处理流程："></a>异常处理流程：</h3><pre><code>dao ==&gt; service ==&gt; web ==&gt; 前端控制器 ==&gt; 页面
-如果不处理异常，那么直接会将异常抛到页面上</code></pre><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在前端控制器中配置异常处理器，进行异常处理</p>
-<p>（1）编写自定义异常类，做提示信息的<br>（2）编写异常处理器<br>（3）配置异常处理器，用于跳转异常页面</p>
-<h3 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h3><p><code>index.jsp</code>首页：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;a href="user/testException"&gt;testException&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p><code>SysException.java</code>自定义的异常类：系统异常</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储提示信息</span></span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SysException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>SysExceptionResolver.java</code>异常处理器类：需要实现<code>HandlerExceptionResolver</code>接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysExceptionResolver</span> <span class="keyword">implements</span> <span class="title">HandlerExceptionResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">resolveException</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取到异常对象</span></span><br><span class="line">        SysException e = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> SysException)&#123;</span><br><span class="line">            e = (SysException) ex;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            e = <span class="keyword">new</span> SysException(<span class="string">"系统正在维护"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建ModelAndView对象</span></span><br><span class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">        mv.setViewName(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>springmvc.xml</code>：配置异常处理器，用于跳转异常页面</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sysExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"com.Lemon.exception.SysExceptionResolver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>UserController</code>控制器类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/testException"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testException执行了..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模拟异常</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">10</span> / <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 打印异常信息</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="comment">// 抛出自定义异常信息</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SysException(<span class="string">"查询所有用户出现错误了..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>error.jsp</code>页面：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> isELIgnored=<span class="string">"false"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    $&#123;errorMsg&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>由于在异常处理器类<code>SysExceptionResolver</code>中创建<code>ModelAndView</code>对象：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">mv.setViewName(<span class="string">"error"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>当有异常时，SpringMVC会将异常捕获，并把异常存储到<code>ModelAndView</code>对象中（<code>mv.addObject(&quot;errorMsg&quot;, e.getMessage());</code>），同时设置了跳转的视图页面（<code>mv.setViewName(&quot;error&quot;);</code>）。</p>
-<p>因此出现异常，不会跳转到<code>success.jsp</code>页面，而是跳转到<code>error.jsp</code>页面。</p>
-]]></content>
-      <categories>
-        <category>SpringMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringMVC（4）</title>
-    <url>/2020/ckbk5m3sl001ouovfah7shsbr/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvh9001ku0vf8st98nqy/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（4）"><a href="#SpringMVC（4）" class="headerlink" title="SpringMVC（4）"></a>SpringMVC（4）</h1><h2 id="SpringMVC实现文件上传"><a href="#SpringMVC实现文件上传" class="headerlink" title="SpringMVC实现文件上传"></a>SpringMVC实现文件上传</h2><h3 id="一、传统方式的文件上传"><a href="#一、传统方式的文件上传" class="headerlink" title="一、传统方式的文件上传"></a>一、传统方式的文件上传</h3><ol>
 <li>在<code>pom.xml</code>中引入<code>commons-fileupload</code>和<code>commons-io</code>jar包：</li>
@@ -1449,9 +1415,43 @@ Project Structure - Modules - web - Deployment Descriptors：点+号生成web.xm
       </tags>
   </entry>
   <entry>
+    <title>SpringMVC（5）</title>
+    <url>/2020/ckbkgzvhc001ou0vf35ey2eei/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
+
+<h1 id="SpringMVC（5）"><a href="#SpringMVC（5）" class="headerlink" title="SpringMVC（5）"></a>SpringMVC（5）</h1><h2 id="SpringMVC的异常处理"><a href="#SpringMVC的异常处理" class="headerlink" title="SpringMVC的异常处理"></a>SpringMVC的异常处理</h2><h3 id="异常处理流程："><a href="#异常处理流程：" class="headerlink" title="异常处理流程："></a>异常处理流程：</h3><pre><code>dao ==&gt; service ==&gt; web ==&gt; 前端控制器 ==&gt; 页面
+如果不处理异常，那么直接会将异常抛到页面上</code></pre><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在前端控制器中配置异常处理器，进行异常处理</p>
+<p>（1）编写自定义异常类，做提示信息的<br>（2）编写异常处理器<br>（3）配置异常处理器，用于跳转异常页面</p>
+<h3 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h3><p><code>index.jsp</code>首页：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;a href="user/testException"&gt;testException&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p><code>SysException.java</code>自定义的异常类：系统异常</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储提示信息</span></span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SysException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>SysExceptionResolver.java</code>异常处理器类：需要实现<code>HandlerExceptionResolver</code>接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SysExceptionResolver</span> <span class="keyword">implements</span> <span class="title">HandlerExceptionResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">resolveException</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取到异常对象</span></span><br><span class="line">        SysException e = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (ex <span class="keyword">instanceof</span> SysException)&#123;</span><br><span class="line">            e = (SysException) ex;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            e = <span class="keyword">new</span> SysException(<span class="string">"系统正在维护"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建ModelAndView对象</span></span><br><span class="line">        ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">        mv.setViewName(<span class="string">"error"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mv;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>springmvc.xml</code>：配置异常处理器，用于跳转异常页面</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sysExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"com.Lemon.exception.SysExceptionResolver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>UserController</code>控制器类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SpringMVC的异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/testException"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testException执行了..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模拟异常</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">10</span> / <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 打印异常信息</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="comment">// 抛出自定义异常信息</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SysException(<span class="string">"查询所有用户出现错误了..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>error.jsp</code>页面：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> isELIgnored=<span class="string">"false"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    $&#123;errorMsg&#125;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>由于在异常处理器类<code>SysExceptionResolver</code>中创建<code>ModelAndView</code>对象：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">mv.addObject(<span class="string">"errorMsg"</span>, e.getMessage());</span><br><span class="line">mv.setViewName(<span class="string">"error"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>当有异常时，SpringMVC会将异常捕获，并把异常存储到<code>ModelAndView</code>对象中（<code>mv.addObject(&quot;errorMsg&quot;, e.getMessage());</code>），同时设置了跳转的视图页面（<code>mv.setViewName(&quot;error&quot;);</code>）。</p>
+<p>因此出现异常，不会跳转到<code>success.jsp</code>页面，而是跳转到<code>error.jsp</code>页面。</p>
+]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringMVC（6）</title>
-    <url>/2020/ckbk5m3sm001quovf7bmw0s7c/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvhe001qu0vfep20bfz7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（6）"><a href="#SpringMVC（6）" class="headerlink" title="SpringMVC（6）"></a>SpringMVC（6）</h1><h2 id="SpringMVC的拦截器"><a href="#SpringMVC的拦截器" class="headerlink" title="SpringMVC的拦截器"></a>SpringMVC的拦截器</h2><h4 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h4><p>==结合流程图和后台打印结果看==<br><img src="https://img-blog.csdnimg.cn/20200611204444926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="含有两个自定义拦截器的流程"><br>后台打印结果：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">preHandle执行了。。。1111</span><br><span class="line">preHandle执行了。。。2222</span><br><span class="line">testInterceptor执行了...</span><br><span class="line">postHandle执行了。。。2222</span><br><span class="line">postHandle执行了。。。1111</span><br><span class="line">success.jsp执行了...</span><br><span class="line">afterCompletion执行了。。。2222</span><br><span class="line">afterCompletion执行了。。。1111</span><br></pre></td></tr></table></figure>
@@ -1494,21 +1494,9 @@ return false：不放行，直接跳转页面</code></pre><p>（2）<code>postHa
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/about/</url>
-    <content><![CDATA[<blockquote>
-<p>A Coder, live in Nanjing, China.</p>
-</blockquote>
-<p>姓名：吴沛达<br>现居：南京<br>GitHub: <a href="https://github.com/Lemon-362" target="_blank" rel="noopener">Peida Wu</a><br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=1092529048&site=qq&menu=yes" target="_blank" rel="noopener">1092529048</a><br>微信: 18362086897</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringMVC（7）</title>
-    <url>/2020/ckbk5m3sp001wuovf07c3dtgt/</url>
-    <content><![CDATA[<a id="more"></a>
+    <url>/2020/ckbkgzvhg001uu0vf3xau0ba2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><a id="more"></a>
 
 <h1 id="SpringMVC（7）"><a href="#SpringMVC（7）" class="headerlink" title="SpringMVC（7）"></a>SpringMVC（7）</h1><h2 id="SSM整合"><a href="#SSM整合" class="headerlink" title="SSM整合"></a>SSM整合</h2><h4 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h4><p><img src="https://img-blog.csdnimg.cn/20200611205002553.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlbW9uMzYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h4 id="思路：XML-注解的方式"><a href="#思路：XML-注解的方式" class="headerlink" title="思路：XML+注解的方式"></a>思路：XML+注解的方式</h4><p>（1）先搭建整合的环境<br>（2）将Spring配置搭建完成（业务层Service）<br>（3）搭建SpringMVC配置，并使用Spring整合SpringMVC（表现层Web Conreoller）<br>（4）搭建MyBatis配置，并使用Spring整合MyBatis（持久层Dao）</p>
@@ -1626,9 +1614,26 @@ return false：不放行，直接跳转页面</code></pre><p>（2）<code>postHa
       </tags>
   </entry>
   <entry>
+    <title>About Me</title>
+    <url>/2020/about/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>
+    <div id="aplayer-PctElZcn" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="4924170567" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
+    ></div>
+
+<blockquote>
+<p>A Coder, live in Nanjing, China.</p>
+</blockquote>
+<p>姓名：吴沛达<br>现居：南京<br>GitHub: <a href="https://github.com/Lemon-362" target="_blank" rel="noopener">Peida Wu</a><br>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=1092529048&site=qq&menu=yes" target="_blank" rel="noopener">1092529048</a><br>微信: 18362086897</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客文章</title>
-    <url>/2020/ckbk5m3sr0020uovf9eb565s8/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><ol>
+    <url>/2020/ckbkgzvhk0020u0vffa9d5odw/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><ol>
 <li>hexo s：开启博客</li>
 <li>hexo clean：清理</li>
 <li>hexo g：生成</li>
