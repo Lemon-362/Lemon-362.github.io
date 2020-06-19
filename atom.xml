@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lemon-362.top/"/>
-  <updated>2020-06-17T13:55:09.931Z</updated>
+  <updated>2020-06-19T12:42:55.052Z</updated>
   <id>http://lemon-362.top/</id>
   
   <author>
@@ -17,9 +17,90 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SpringBoot（10）—— 自定义Starter（重要！！！）</title>
+    <link href="http://lemon-362.top/2020/ckbm7fgph000muovfhhnc7xv7/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgph000muovfhhnc7xv7/</id>
+    <published>2020-06-19T12:39:38.000Z</published>
+    <updated>2020-06-19T12:42:55.052Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Boot" scheme="http://lemon-362.top/categories/Spring-Boot/"/>
+    
+    
+      <category term="spring boot" scheme="http://lemon-362.top/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot（9）—— 整合MyBatis和SpringData JPA</title>
+    <link href="http://lemon-362.top/2020/ckbm7fgpx001duovf2w8oh535/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpx001duovf2w8oh535/</id>
+    <published>2020-06-19T12:18:35.000Z</published>
+    <updated>2020-06-19T12:42:55.018Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Boot" scheme="http://lemon-362.top/categories/Spring-Boot/"/>
+    
+    
+      <category term="spring boot" scheme="http://lemon-362.top/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot（8）—— 数据访问（数据库相关）</title>
+    <link href="http://lemon-362.top/2020/ckbm7fgpr0010uovfcb6nh3f6/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpr0010uovfcb6nh3f6/</id>
+    <published>2020-06-19T11:33:27.000Z</published>
+    <updated>2020-06-19T12:42:55.029Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Boot" scheme="http://lemon-362.top/categories/Spring-Boot/"/>
+    
+    
+      <category term="spring boot" scheme="http://lemon-362.top/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SpringBoot（7）—— 使用外置的Servlet容器</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46w001cqwvfd8mgfarv/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46w001cqwvfd8mgfarv/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgq3001juovf2iz985g8/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgq3001juovf2iz985g8/</id>
     <published>2020-06-17T13:34:39.000Z</published>
     <updated>2020-06-17T13:55:09.931Z</updated>
     
@@ -45,8 +126,8 @@
   
   <entry>
     <title>SpringBoot（6）—— 配置嵌入式Servlet容器</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46r0012qwvfe9n2c1hv/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46r0012qwvfe9n2c1hv/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpu0017uovfgzas43a9/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpu0017uovfgzas43a9/</id>
     <published>2020-06-17T13:25:45.000Z</published>
     <updated>2020-06-17T13:55:12.475Z</updated>
     
@@ -72,8 +153,8 @@
   
   <entry>
     <title>SpringBoot（4）—— Web开发的CRUD</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46q0010qwvf2ncy7hh3/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46q0010qwvf2ncy7hh3/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpl000tuovf3os95619/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpl000tuovf3os95619/</id>
     <published>2020-06-17T13:06:59.000Z</published>
     <updated>2020-06-18T02:17:05.967Z</updated>
     
@@ -99,8 +180,8 @@
   
   <entry>
     <title>SpringBoot（5）—— 错误处理机制</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46o000wqwvfhk6o6f5f/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46o000wqwvfhk6o6f5f/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpq000yuovfhihb9bcx/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpq000yuovfhihb9bcx/</id>
     <published>2020-06-17T13:05:59.000Z</published>
     <updated>2020-06-17T13:55:14.522Z</updated>
     
@@ -151,8 +232,8 @@
   
   <entry>
     <title>SpringBoot（3）—— Web开发（登录界面和国际化）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46t0016qwvf1ypn1bf1/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46t0016qwvf1ypn1bf1/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgq1001huovf3c3y1r89/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgq1001huovf3c3y1r89/</id>
     <published>2020-06-16T14:04:54.000Z</published>
     <updated>2020-06-17T13:55:16.355Z</updated>
     
@@ -178,8 +259,8 @@
   
   <entry>
     <title>SpringBoot（2）—— Web开发（SpringMVC部分）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46m000uqwvf1at7cb1c/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46m000uqwvf1at7cb1c/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpt0014uovfhs6rb7k7/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpt0014uovfhs6rb7k7/</id>
     <published>2020-06-16T12:46:04.000Z</published>
     <updated>2020-06-17T13:42:08.140Z</updated>
     
@@ -205,8 +286,8 @@
   
   <entry>
     <title>SpringBoot（1）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46k000qqwvf31536mor/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46k000qqwvf31536mor/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpi000nuovffpld6c1q/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpi000nuovffpld6c1q/</id>
     <published>2020-06-13T09:45:59.000Z</published>
     <updated>2020-06-17T13:42:08.234Z</updated>
     
@@ -232,8 +313,8 @@
   
   <entry>
     <title>我的第一篇博客文章</title>
-    <link href="http://lemon-362.top/2020/ckbkhp47h0020qwvfhnm3gqaz/"/>
-    <id>http://lemon-362.top/2020/ckbkhp47h0020qwvfhnm3gqaz/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgrg003euovf6drl40dq/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgrg003euovf6drl40dq/</id>
     <published>2020-06-12T08:00:54.000Z</published>
     <updated>2020-06-12T08:31:09.742Z</updated>
     
@@ -255,8 +336,8 @@
   
   <entry>
     <title>SpringMVC（7）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp47c001qqwvf3h03cniv/"/>
-    <id>http://lemon-362.top/2020/ckbkhp47c001qqwvf3h03cniv/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgrh003guovf4tm55ne5/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgrh003guovf4tm55ne5/</id>
     <published>2020-06-11T14:08:24.000Z</published>
     <updated>2020-06-12T10:12:01.730Z</updated>
     
@@ -282,8 +363,8 @@
   
   <entry>
     <title>SpringMVC（6）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp47e001uqwvfgrvn5w0e/"/>
-    <id>http://lemon-362.top/2020/ckbkhp47e001uqwvfgrvn5w0e/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgrc0038uovff2c2gfd9/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgrc0038uovff2c2gfd9/</id>
     <published>2020-06-11T12:48:11.000Z</published>
     <updated>2020-06-12T10:11:59.833Z</updated>
     
@@ -309,8 +390,8 @@
   
   <entry>
     <title>SpringMVC（5）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp479001kqwvfavw80exo/"/>
-    <id>http://lemon-362.top/2020/ckbkhp479001kqwvfavw80exo/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgre003buovf0vah8quw/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgre003buovf0vah8quw/</id>
     <published>2020-06-11T12:18:08.000Z</published>
     <updated>2020-06-12T10:11:32.389Z</updated>
     
@@ -336,8 +417,8 @@
   
   <entry>
     <title>SpringMVC（4）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp477001iqwvf9cpoad1e/"/>
-    <id>http://lemon-362.top/2020/ckbkhp477001iqwvf9cpoad1e/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgpw001buovf9mdq5cbl/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgpw001buovf9mdq5cbl/</id>
     <published>2020-06-11T12:03:46.000Z</published>
     <updated>2020-06-12T10:11:55.394Z</updated>
     
@@ -363,8 +444,8 @@
   
   <entry>
     <title>SpringMVC（3）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp47b001oqwvfffrp4bth/"/>
-    <id>http://lemon-362.top/2020/ckbkhp47b001oqwvfffrp4bth/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgq5001nuovfa8jq18zv/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgq5001nuovfa8jq18zv/</id>
     <published>2020-06-11T08:32:09.000Z</published>
     <updated>2020-06-12T10:11:52.782Z</updated>
     
@@ -390,8 +471,8 @@
   
   <entry>
     <title>SpringMVC（2）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46u0018qwvfb97c25zv/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46u0018qwvfb97c25zv/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgr80033uovf5xsie5a1/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgr80033uovf5xsie5a1/</id>
     <published>2020-06-11T07:29:58.000Z</published>
     <updated>2020-06-12T10:11:46.253Z</updated>
     
@@ -417,8 +498,8 @@
   
   <entry>
     <title>SpringMVC（1）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp473001eqwvf3it49twe/"/>
-    <id>http://lemon-362.top/2020/ckbkhp473001eqwvf3it49twe/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgq6001puovffifgayw2/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgq6001puovffifgayw2/</id>
     <published>2020-06-10T13:26:19.000Z</published>
     <updated>2020-06-12T10:11:40.773Z</updated>
     
@@ -444,8 +525,8 @@
   
   <entry>
     <title>LeetCode热题Hot（3）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp4600006qwvf8bfs7hg6/"/>
-    <id>http://lemon-362.top/2020/ckbkhp4600006qwvf8bfs7hg6/</id>
+    <link href="http://lemon-362.top/2020/ckbm7fgp30004uovfbfq70h46/"/>
+    <id>http://lemon-362.top/2020/ckbm7fgp30004uovfbfq70h46/</id>
     <published>2020-06-07T10:15:53.000Z</published>
     <updated>2020-06-12T10:05:00.287Z</updated>
     
@@ -466,87 +547,6 @@
     
     
       <category term="leetcode" scheme="http://lemon-362.top/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode热题Hot（2）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp45v0002qwvf5x6i6bww/"/>
-    <id>http://lemon-362.top/2020/ckbkhp45v0002qwvf5x6i6bww/</id>
-    <published>2020-06-07T10:13:56.000Z</published>
-    <updated>2020-06-12T10:05:00.299Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode热题Hot100" scheme="http://lemon-362.top/categories/LeetCode%E7%83%AD%E9%A2%98Hot100/"/>
-    
-    
-      <category term="leetcode" scheme="http://lemon-362.top/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode热题Hot（1）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp45o0000qwvfa2564ucu/"/>
-    <id>http://lemon-362.top/2020/ckbkhp45o0000qwvfa2564ucu/</id>
-    <published>2020-06-07T10:10:09.000Z</published>
-    <updated>2020-06-12T10:05:00.287Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode热题Hot100" scheme="http://lemon-362.top/categories/LeetCode%E7%83%AD%E9%A2%98Hot100/"/>
-    
-    
-      <category term="leetcode" scheme="http://lemon-362.top/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBatis总结（4）</title>
-    <link href="http://lemon-362.top/2020/ckbkhp46b000jqwvf2e373d8u/"/>
-    <id>http://lemon-362.top/2020/ckbkhp46b000jqwvf2e373d8u/</id>
-    <published>2020-06-03T03:09:37.000Z</published>
-    <updated>2020-06-12T10:05:00.398Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="MyBatis" scheme="http://lemon-362.top/categories/MyBatis/"/>
-    
-    
-      <category term="mybatis" scheme="http://lemon-362.top/tags/mybatis/"/>
     
   </entry>
   
